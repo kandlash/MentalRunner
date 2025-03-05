@@ -48,12 +48,8 @@ volume_db = -7.619
 autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.998753, 0.0499305, 0, -0.0499305, -0.998753, 0.531036, 19.3742, -13.8539)
-light_color = Color(0.567073, 0, 0.131527, 1)
-light_energy = 3.614
-light_indirect_energy = 2.778
-light_volumetric_fog_energy = 4.071
-light_angular_distance = 13.64
+transform = Transform3D(0.999734, 0.00148571, -0.0230058, 0.0223748, -0.302936, 0.952748, -0.00555378, -0.95301, -0.302888, 0.531036, 19.3742, -13.8539)
+light_energy = 1.029
 
 [node name="r_p1" type="Node3D" parent="."]
 
@@ -303,7 +299,7 @@ transform = Transform3D(4.37114e-08, 1, -1.31134e-07, 3.82137e-15, 1.31134e-07, 
 transform = Transform3D(0.866025, -0.5, 0, -0.5, -0.866025, 8.74228e-08, -4.37114e-08, -7.57103e-08, -1, 54.4545, 4.3564, 60)
 
 [node name="abstract_element3" parent="r_p1" instance=ExtResource("9_6emce")]
-transform = Transform3D(0.866025, -0.5, 0, -0.5, -0.866025, 8.74228e-08, -4.37114e-08, -7.57103e-08, -1, -78.7987, 23.5551, 78)
+transform = Transform3D(0.944227, 0.329295, -6.62046e-08, 0.329295, -0.944227, 5.70938e-08, -4.37114e-08, -7.57103e-08, -1, -78.7987, 23.5551, 78)
 
 [node name="abstract_element5" parent="r_p1" instance=ExtResource("9_6emce")]
 transform = Transform3D(-0.258819, 0.965926, 0, 0.965926, 0.258819, 8.74228e-08, 8.44439e-08, 2.26267e-08, -1, -59.7987, 56.4641, 431)
@@ -390,6 +386,9 @@ transform = Transform3D(1, 0, 0, 0, 0.970148, 0.242515, 0, -0.242515, 0.970148, 
 
 [node name="obstacle4" parent="obstacles_group" instance=ExtResource("35_saja1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 81, 245.691)
+
+[node name="obstacle35" parent="obstacles_group" instance=ExtResource("35_saja1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67313, 81, 259.512)
 
 [node name="obstacle5" parent="obstacles_group" instance=ExtResource("35_saja1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 81, 245.691)

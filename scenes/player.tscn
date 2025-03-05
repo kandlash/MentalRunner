@@ -1,12 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdopo2p8fx6vv"]
+[gd_scene load_steps=15 format=3 uid="uid://bdopo2p8fx6vv"]
 
 [ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_i5426"]
 [ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_k416p"]
 [ext_resource type="Script" uid="uid://cvvkf08tvkygw" path="res://scripts/katana_arm.gd" id="3_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://scenes/katana.tscn" id="3_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dkdhlk6c34w6h" path="res://scenes/slash.tscn" id="5_tuyoq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "camera_bob"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(4.43362e-08, 0.0301809, 0.00894529), Vector3(0, -0.2, 0.009), Vector3(4.43362e-08, 0.0301809, 0.00894529)]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.43362e-08, 0.0301809, 0.00894529)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smehm"]
+_data = {
+&"RESET": SubResource("Animation_fjrip"),
+&"camera_bob": SubResource("Animation_tuyoq")
+}
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6ml0c"]
 
@@ -47,10 +86,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.103918, 0.244513, 0.295454),
+"times": PackedFloat32Array(0, 0.103918, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.652125, 0), Vector3(0, -1.17846, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.652125, 0), Vector3(0, -1.29897, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,10 +98,10 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.103918, 0.244513, 0.295454),
+"times": PackedFloat32Array(0, 0.103918, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.00329, 0, 1.51806e-07), Vector3(-0.661856, 0, -1.40981), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-1.8, 0, 0), Vector3(-0.418, 0, -2.8), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1jxqw"]
@@ -104,6 +143,14 @@ script = ExtResource("3_hqtel")
 
 [node name="katana" parent="head/Camera3D/katana_arm" instance=ExtResource("3_i3pqv")]
 transform = Transform3D(-0.0178117, -0.0639929, 0.317611, 0.216269, -0.239199, -0.0360658, 0.241246, 0.209709, 0.0557818, 0.720121, -0.320633, -0.946568)
+
+[node name="slash" parent="head/Camera3D" instance=ExtResource("5_tuyoq")]
+transform = Transform3D(-7.57168, 0.645872, -1.25193, 1.0824, 3.87451, 0.802931, 1.7694, 0.393671, -5.84847, 3.65441, -0.973085, -6.49158)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head"]
+libraries = {
+&"": SubResource("AnimationLibrary_smehm")
+}
 
 [node name="head2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65717e-07, 2.76868, 1.75976)

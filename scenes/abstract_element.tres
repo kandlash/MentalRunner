@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dyv8mviqiypav"]
+
+[ext_resource type="Shader" uid="uid://d2svpfl64r0a3" path="res://scripts/abstract_element.gdshader" id="1_fwllq"]
+
+[resource]
+shader = ExtResource("1_fwllq")
+shader_parameter/amplitude = 0.835

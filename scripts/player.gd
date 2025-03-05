@@ -33,20 +33,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		# Получаем относительное движение мыши
-		var mouse_relative = event.relative
-		
-		# Обновляем позицию прицела на основе относительного движения
-		$in_game_ui/crosshair.position += mouse_relative
-		
-		# Ограничиваем позицию прицела в пределах экрана
-		var viewport_size = get_viewport().get_visible_rect().size
-		var crosshair_size = $in_game_ui/crosshair.get_rect().size  # Получаем размер прицела
-		
-		# Ограничиваем позицию, чтобы прицел не выходил за границы экрана
-		$in_game_ui/crosshair.position.x = clamp($in_game_ui/crosshair.position.x, 0, viewport_size.x - crosshair_size.x)
-		$in_game_ui/crosshair.position.y = clamp($in_game_ui/crosshair.position.y, 0, viewport_size.y - crosshair_size.y)
-		
+
 		$head.rotate_y(-event.relative.x * mouse_sensitivity)
 		$head.rotation.y = clampf($head.rotation.y, -deg_to_rad(1), deg_to_rad(90))
 		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -81,6 +68,11 @@ func _physics_process(delta: float) -> void:
 	if !is_wall_running: position.x = lerp(position.x, float(target_x), LANE_CHANGE_TIME)
 
 	velocity.z = main_speed
+	$head/AnimationPlayer.play("camera_bob")
+	if !is_crouch:
+		$head/AnimationPlayer.play("camera_bob")
+	else:
+		$head/AnimationPlayer.stop()
 
 	move_and_slide()
 	var n = $RayCast3D.get_collision_normal()
