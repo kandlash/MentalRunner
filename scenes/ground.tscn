@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://qwp7e1uxfo5j"]
+
+[ext_resource type="Shader" uid="uid://bqdrahoghrmx1" path="res://scripts/line.gdshader" id="1_wgwa7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba2ky"]
+size = Vector3(16, 0.113037, 23.9987)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7mfx"]
+render_priority = 0
+shader = ExtResource("1_wgwa7")
+shader_parameter/ring_color = Color(0.513726, 0.568627, 1, 1)
+shader_parameter/ring_frequency = 50.0
+shader_parameter/ring_portion = 3.72529e-08
+shader_parameter/move_speed = -10.0
+shader_parameter/smooth_edge = true
+
+[node name="ground" type="Node3D" groups=["ground"]]
+transform = Transform3D(1.01507, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.0029)
+shape = SubResource("BoxShape3D_ba2ky")
+
+[node name="start_point" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="start_point"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="start_point/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.0053)
+size = Vector3(16, 0.103516, 24)
+
+[node name="position_1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="position_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 11.9956)
+size = Vector3(1, 0.106323, 23.9854)
+material = SubResource("ShaderMaterial_m7mfx")
+
+[node name="position_2" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="position_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 11.9956)
+size = Vector3(1, 0.106323, 23.9854)
+material = SubResource("ShaderMaterial_m7mfx")
+
+[node name="position_3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="position_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 11.9956)
+size = Vector3(1, 0.106323, 23.9854)
+material = SubResource("ShaderMaterial_m7mfx")

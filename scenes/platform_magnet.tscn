@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddoj6br46keko"]
+
+[ext_resource type="Script" uid="uid://b73s4j5sa6k1t" path="res://scripts/platform_magnet.gd" id="1_mb0cg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojwef"]
+size = Vector3(21.2529, 41.4117, 0.303711)
+
+[node name="platform_magnet" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259067, 86.2243)
+script = ExtResource("1_mb0cg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000289917, 21.5618, 0)
+shape = SubResource("BoxShape3D_ojwef")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -3, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

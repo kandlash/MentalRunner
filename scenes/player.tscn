@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdopo2p8fx6vv"]
+
+[ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_i5426"]
+[ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_k416p"]
+[ext_resource type="Script" uid="uid://cvvkf08tvkygw" path="res://scripts/katana_arm.gd" id="3_hqtel"]
+[ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://scenes/katana.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="5_qlg0r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6ml0c"]
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "katana_attack_1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.103918, 0.244513, 0.295454),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.652125, 0), Vector3(0, -1.17846, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.103918, 0.244513, 0.295454),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.00329, 0, 1.51806e-07), Vector3(-0.661856, 0, -1.40981), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jxqw"]
+_data = {
+&"RESET": SubResource("Animation_2hs0m"),
+&"katana_attack_1": SubResource("Animation_sweqy")
+}
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 3.14159
+floor_snap_length = 500.0
+script = ExtResource("1_i5426")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2n2h4")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(0.123324, 0, 0.992366, 0, 1, 0, -0.992366, 0, 0.123324, 0, 0.576662, 0)
+target_position = Vector3(0, -5, 0)
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6437, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43362e-08, 0.0301809, 0.00894529)
+current = true
+fov = 85.0
+script = ExtResource("2_k416p")
+
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -100)
+
+[node name="katana_arm" type="Node3D" parent="head/Camera3D"]
+script = ExtResource("3_hqtel")
+
+[node name="katana" parent="head/Camera3D/katana_arm" instance=ExtResource("3_i3pqv")]
+transform = Transform3D(-0.0178117, -0.0639929, 0.317611, 0.216269, -0.239199, -0.0360658, 0.241246, 0.209709, 0.0557818, 0.720121, -0.320633, -0.946568)
+
+[node name="head2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65717e-07, 2.76868, 1.75976)
+
+[node name="Camera3D" type="Camera3D" parent="head2"]
+transform = Transform3D(1, -7.33357e-08, -1.90048e-08, 7.33357e-08, 0.874137, 0.48568, -1.90048e-08, -0.48568, 0.874137, 2.61079e-07, 0.0301809, 1.44437)
+fov = 85.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_6ml0c")
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0.3, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../head/Camera3D/katana_arm")
+libraries = {
+&"": SubResource("AnimationLibrary_1jxqw")
+}
+
+[node name="in_game_ui" parent="." instance=ExtResource("5_qlg0r")]

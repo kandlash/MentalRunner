@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdopo2p8fx6vv"]
+
+[ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://player.gd" id="1_i5426"]
+[ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://camera_3d.gd" id="2_k416p"]
+[ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://katana.tscn" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6ml0c"]
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 3.14159
+floor_snap_length = 500.0
+script = ExtResource("1_i5426")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2n2h4")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(0.123324, 0, 0.992366, 0, 1, 0, -0.992366, 0, 0.123324, 0, 0.576662, 0)
+target_position = Vector3(0, -5, 0)
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6437, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43362e-08, 0.0301809, 0.00894529)
+current = true
+fov = 85.0
+script = ExtResource("2_k416p")
+
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -100)
+
+[node name="katana" parent="head/Camera3D" instance=ExtResource("3_i3pqv")]
+transform = Transform3D(-0.0178117, -0.0639929, 0.317611, 0.216269, -0.239199, -0.0360658, 0.241246, 0.209709, 0.0557818, 0.720121, -0.320633, -0.946568)
+
+[node name="head2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65717e-07, 2.76868, 1.75976)
+
+[node name="Camera3D" type="Camera3D" parent="head2"]
+transform = Transform3D(1, -7.33357e-08, -1.90048e-08, 7.33357e-08, 0.874137, 0.48568, -1.90048e-08, -0.48568, 0.874137, 2.61079e-07, 0.0301809, 1.44437)
+fov = 85.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_6ml0c")
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0.3, 0)

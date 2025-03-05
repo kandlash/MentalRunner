@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd7g51vqbay84"]
+
+[ext_resource type="Script" uid="uid://2x77q22w2b2k" path="res://scripts/gravity_scale_zone.gd" id="1_ng08k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi1bm"]
+
+[node name="gravity_scale_zone" type="Area3D"]
+script = ExtResource("1_ng08k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mi1bm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

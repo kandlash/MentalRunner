@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://1u8vjhd4j4y4"]
+
+[ext_resource type="Script" uid="uid://binapss1yi8tx" path="res://scripts/from_wall_to_floor.gd" id="1_ebrm0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1s8b"]
+size = Vector3(5.20142, 4.9353, 3.78882)
+
+[node name="from_wall_to_floor" type="Area3D"]
+script = ExtResource("1_ebrm0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l1s8b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

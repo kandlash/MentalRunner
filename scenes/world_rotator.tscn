@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn46bprwuvehq"]
+
+[ext_resource type="Script" uid="uid://boaf7wkg6k8a7" path="res://scripts/world_rotator.gd" id="1_sl0qu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_djwrw"]
+size = Vector3(16.376, 20.6658, 1)
+
+[node name="world_rotator" type="Area3D" node_paths=PackedStringArray("world_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0268707, 0.616917, 141.027)
+script = ExtResource("1_sl0qu")
+world_point = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_djwrw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
