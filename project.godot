@@ -20,6 +20,7 @@ config/icon="res://assets/images/icon.svg"
 ground=""
 wall=""
 side_platform_hook=""
+enemy=""
 
 [input]
 

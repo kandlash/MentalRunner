@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b123taaef21or"]
+[gd_scene load_steps=15 format=3 uid="uid://b123taaef21or"]
 
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_2xnjc"]
 [ext_resource type="PackedScene" uid="uid://qwp7e1uxfo5j" path="res://scenes/ground.tscn" id="1_nwp2h"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cm1w06qa3u02f" path="res://assets/sounds/Inverted Variable — I hope you find what you're looking for.. (www.lightaudio.ru).mp3" id="8_lnbra"]
 [ext_resource type="PackedScene" uid="uid://nhhgml6odms6" path="res://scenes/abstract_element.tscn" id="9_6emce"]
 [ext_resource type="PackedScene" uid="uid://bp2mlujascs73" path="res://assets/models/abstract_cubes_1.fbx" id="10_lowby"]
+[ext_resource type="PackedScene" uid="uid://djqrnepni7en8" path="res://scenes/enemy.tscn" id="11_dw7u0"]
 [ext_resource type="PackedScene" uid="uid://cb0ktseb0east" path="res://scenes/obstacle1.tscn" id="35_saja1"]
 [ext_resource type="PackedScene" uid="uid://cn46bprwuvehq" path="res://scenes/world_rotator.tscn" id="35_sn40u"]
 
@@ -507,6 +508,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -14, 175)
 
 [node name="abstract_cubes_8" parent="abc2" instance=ExtResource("10_lowby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -27, 175)
+
+[node name="enemy" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -36.8047, 0.0565186, 341.074)
+
+[node name="enemy2" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -36.8047, 0.0565186, 356.074)
+
+[node name="enemy3" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -36.8047, 0.0565186, 367.074)
+
+[node name="enemy4" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -31.8047, 0.0565186, 164.074)
+
+[node name="enemy5" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -37.8047, 0.0565186, 164.074)
+
+[node name="enemy6" parent="abc2" instance=ExtResource("11_dw7u0")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -26.8047, 0.0565186, 164.074)
 
 [node name="abc3" type="Node3D" parent="."]
 transform = Transform3D(0.983341, 0, -0.181772, 0, 1, 0, 0.181772, 0, 0.983341, 6.54987, -7.93506, -284.766)

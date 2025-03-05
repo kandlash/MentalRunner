@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://djqrnepni7en8"]
+
+[ext_resource type="Script" uid="uid://cay2dltro51vt" path="res://enemy.gd" id="1_7p1mj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_md0e3"]
+size = Vector3(1.48071, 2.29834, 1.375)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ra3w"]
+albedo_color = Color(0.72, 0, 0, 1)
+metallic = 0.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5uy6h"]
+material = SubResource("StandardMaterial3D_4ra3w")
+
+[node name="enemy" type="Area3D" groups=["enemy"]]
+script = ExtResource("1_7p1mj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1387, 0)
+shape = SubResource("BoxShape3D_md0e3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00215, 0)
+mesh = SubResource("CapsuleMesh_5uy6h")

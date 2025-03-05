@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdopo2p8fx6vv"]
+[gd_scene load_steps=17 format=3 uid="uid://bdopo2p8fx6vv"]
 
 [ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_i5426"]
 [ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_k416p"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://scenes/katana.tscn" id="3_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dkdhlk6c34w6h" path="res://scenes/slash.tscn" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://biad5fsmegwct" path="res://assets/sounds/katana_attack.mp3" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjrip"]
+size = Vector3(0.363281, 2.15808, 6.93213)
 
 [sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "camera_bob"
@@ -147,6 +151,13 @@ transform = Transform3D(-0.0178117, -0.0639929, 0.317611, 0.216269, -0.239199, -
 [node name="slash" parent="head/Camera3D" instance=ExtResource("5_tuyoq")]
 transform = Transform3D(-7.57168, 0.645872, -1.25193, 1.0824, 3.87451, 0.802931, 1.7694, 0.393671, -5.84847, 3.65441, -0.973085, -6.49158)
 
+[node name="attack_area" type="Area3D" parent="head/Camera3D"]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head/Camera3D/attack_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3145e-13, -0.281799, -4.36379)
+shape = SubResource("BoxShape3D_fjrip")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head"]
 libraries = {
 &"": SubResource("AnimationLibrary_smehm")
@@ -173,3 +184,10 @@ libraries = {
 }
 
 [node name="in_game_ui" parent="." instance=ExtResource("5_qlg0r")]
+
+[node name="katana_attack" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_fjrip")
+volume_db = -20.0
+
+[connection signal="area_entered" from="head/Camera3D/attack_area" to="head/Camera3D/katana_arm" method="_on_attack_area_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="head/Camera3D/katana_arm" method="_on_animation_player_animation_finished"]
