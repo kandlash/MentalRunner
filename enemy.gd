@@ -1,6 +1,7 @@
 extends Area3D
 
 var mesh_slicer = MeshSlicer.new()
+var chance_to_slowmotion = 40
 
 func start_slow_motion(scale: float = 0.5) -> void:
 	Engine.time_scale = scale
@@ -10,10 +11,12 @@ func stop_slow_motion() -> void:
 	Engine.time_scale = 1.0
 
 func take_damage(slicer):
+	$Blood.restart()
 	$AudioStreamPlayer3D.play()
 	$CollisionShape3D.disabled = true
-	start_slow_motion(0.3)
-	$SlowMotionTimer.start()
+	if randi_range(0, 100) <= chance_to_slowmotion:
+		start_slow_motion(0.1)
+		$SlowMotionTimer.start()
 	add_child(mesh_slicer)
 	var Transform = slicer.global_transform
 	var MeshInstance = $MeshInstance3D
@@ -43,7 +46,7 @@ func take_damage(slicer):
 		# Добавляем RigidBody3D на сцену
 		add_child(rigid_body)
 		var impulse_strength = 10.0  # Сила импульса
-		var direction = Vector3(0, 0, -1)
+		var direction = Vector3(0, 1, -1)
 		rigid_body.apply_central_impulse(direction * impulse_strength)
 	
 
