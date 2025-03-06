@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb0ktseb0east"]
+[gd_scene load_steps=6 format=3 uid="uid://cb0ktseb0east"]
 
 [ext_resource type="PackedScene" uid="uid://bbw4oxrb4df4b" path="res://assets/models/Stone_big_001.fbx" id="1_4g54m"]
 [ext_resource type="Script" uid="uid://dbusksk40o3lm" path="res://scripts/obstacle_1.gd" id="1_h3f6d"]
+[ext_resource type="PackedScene" uid="uid://bxxeu117el3mn" path="res://scenes/death_area.tscn" id="3_km1om"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0785b"]
 size = Vector3(2.71582, 3.74316, 2.88086)
@@ -21,9 +22,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90602, 0)
 shape = SubResource("BoxShape3D_0785b")
 
+[node name="death_area" parent="Stone_big_001" instance=ExtResource("3_km1om")]
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_ydbay")
 
+[connection signal="body_entered" from="Stone_big_001/death_area" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

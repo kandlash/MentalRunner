@@ -21,3 +21,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			Vector3($Stone_big_001.position.x, 0, $Stone_big_001.position.z),
 			0.5
 		).set_trans(Tween.TRANS_SPRING)
+
+
+func _on_death_area_body_entered(body: Node3D) -> void:
+	if body.name == "player":
+		get_tree().reload_current_scene()

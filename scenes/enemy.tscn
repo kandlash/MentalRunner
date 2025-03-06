@@ -22,3 +22,5 @@ shape = SubResource("BoxShape3D_md0e3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00215, 0)
 mesh = SubResource("CapsuleMesh_5uy6h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

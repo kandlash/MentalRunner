@@ -43,6 +43,9 @@ func _input(event):
 			$head/Camera3D.make_current()
 		else:
 			$head2/Camera3D.make_current()
+	
+	if Input.is_action_just_pressed("reload"):
+		get_tree().reload_current_scene()
 		
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and !is_wall_running:
