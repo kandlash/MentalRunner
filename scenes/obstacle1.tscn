@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb0ktseb0east"]
+[gd_scene load_steps=7 format=3 uid="uid://cb0ktseb0east"]
 
 [ext_resource type="Script" uid="uid://dbusksk40o3lm" path="res://scripts/obstacle_1.gd" id="1_h3f6d"]
+[ext_resource type="Material" uid="uid://b5ex0q582nomh" path="res://scenes/black_mat.tres" id="3_6ui81"]
 [ext_resource type="Material" uid="uid://ca37alv44lbef" path="res://scenes/emission_white.tres" id="3_h5phv"]
 [ext_resource type="PackedScene" uid="uid://bxxeu117el3mn" path="res://scenes/death_area.tscn" id="3_km1om"]
 
@@ -27,9 +28,11 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01708, 0.580852, 0)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.976918, 0.580852, 0)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70489, 0.547536, -0.0551898)
@@ -37,6 +40,7 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4667, 0.547536, 0.133284)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18277, 1.49002, 0)
@@ -44,12 +48,15 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301756, 1.49002, -0.0612032)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617995, 1.49002, 0.0579998)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54879, 1.49002, 0)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54879, 2.46545, -0.147135)
@@ -57,15 +64,19 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648867, 2.46545, 0)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222033, 2.46545, 0.109921)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10921, 2.46545, -0.234889)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80606, 2.46545, -0.122551)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08477, 3.47434, 0)
@@ -73,6 +84,7 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179335, 3.43159, 0.0684201)
+material = ExtResource("3_6ui81")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701363, 3.45719, 0)
@@ -80,6 +92,7 @@ material = ExtResource("3_h5phv")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7014, 3.40417, 0)
+material = ExtResource("3_6ui81")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="obstacle_mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.185868, 0)
