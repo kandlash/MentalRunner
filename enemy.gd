@@ -5,11 +5,11 @@ var chance_to_slowmotion = 40
 
 func start_slow_motion(scale: float = 0.5) -> void:
 	Engine.time_scale = scale
-
+		
 # Run the game at normal speed.
 func stop_slow_motion() -> void:
 	Engine.time_scale = 1.0
-
+		
 func take_damage(slicer):
 	$Blood.restart()
 	$AudioStreamPlayer3D.play()
@@ -27,7 +27,6 @@ func take_damage(slicer):
 	Transform.basis.z =  $MeshInstance3D.to_local(Transform.basis.z+MeshInstance.global_position)
 	var meshes = mesh_slicer.slice_mesh(Transform, MeshInstance.mesh)
 	MeshInstance.queue_free()
-	
 	# Создаем RigidBody3D для каждой части меша
 	for i in range(meshes.size()):
 		var new_mesh_instance = MeshInstance3D.new()
@@ -45,8 +44,8 @@ func take_damage(slicer):
 		
 		# Добавляем RigidBody3D на сцену
 		add_child(rigid_body)
-		var impulse_strength = 10.0  # Сила импульса
-		var direction = Vector3(0, 1, -1)
+		var impulse_strength = 25.0  # Сила импульса
+		var direction = Vector3(randf_range(-1, 1), 1, 1)
 		rigid_body.apply_central_impulse(direction * impulse_strength)
 	
 
