@@ -39,7 +39,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$head.rotate_y(-event.relative.x * mouse_sensitivity)
-		$head.rotation.y = clampf($head.rotation.y, -deg_to_rad(1), deg_to_rad(90))
+		$head.rotation.y = clampf($head.rotation.y, -deg_to_rad(90), deg_to_rad(90))
 		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera_3d.rotation.x =  clampf(camera_3d.rotation.x, -deg_to_rad(35), deg_to_rad(35))
 	if Input.is_action_just_pressed("debug_camera_change"):
@@ -83,9 +83,12 @@ func _physics_process(delta: float) -> void:
 		$head/AnimationPlayer.stop()
 
 	move_and_slide()
+	
 	var n = $RayCast3D.get_collision_normal()
-	var xform = align_with_y(global_transform, n)
-	global_transform = global_transform.interpolate_with(xform, 0.2)
+	if n.length() > 0:
+		var xform = align_with_y(global_transform, n)
+		global_transform = global_transform.interpolate_with(xform, 0.2)
+
 
 func align_with_y(xform, new_y):
 	xform.basis.y = new_y

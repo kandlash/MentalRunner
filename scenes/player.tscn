@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdopo2p8fx6vv"]
+[gd_scene load_steps=19 format=3 uid="uid://bdopo2p8fx6vv"]
 
 [ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_i5426"]
 [ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_k416p"]
@@ -9,6 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://biad5fsmegwct" path="res://assets/sounds/katana_attack.mp3" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fjrip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smehm"]
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjrip"]
 size = Vector3(0.363281, 2.15808, 6.93213)
@@ -116,6 +121,7 @@ _data = {
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
+collision_mask = 3
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 3.14159
@@ -129,6 +135,7 @@ shape = SubResource("CapsuleShape3D_2n2h4")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.123324, 0, 0.992366, 0, 1, 0, -0.992366, 0, 0.123324, 0, 0.576662, 0)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6437, 0)
@@ -147,6 +154,12 @@ script = ExtResource("3_hqtel")
 
 [node name="katana" parent="head/Camera3D/katana_arm" instance=ExtResource("3_i3pqv")]
 transform = Transform3D(-0.0178117, -0.0639929, 0.317611, 0.216269, -0.239199, -0.0360658, 0.241246, 0.209709, 0.0557818, 0.720121, -0.320633, -0.946568)
+
+[node name="Slicer" type="MeshInstance3D" parent="head/Camera3D/katana_arm"]
+transform = Transform3D(1.8, -1.09473e-06, -2.71793e-07, 2.71793e-07, -3.16911e-07, 1.8, -2.71793e-07, -7.25008, -7.86805e-08, -6.77637e-07, -0.21104, -4.48778)
+visible = false
+mesh = SubResource("QuadMesh_fjrip")
+surface_material_override/0 = SubResource("StandardMaterial3D_smehm")
 
 [node name="slash" parent="head/Camera3D" instance=ExtResource("5_tuyoq")]
 transform = Transform3D(-7.57168, 0.645872, -1.25193, 1.0824, 3.87451, 0.802931, 1.7694, 0.393671, -5.84847, 3.65441, -0.973085, -6.49158)

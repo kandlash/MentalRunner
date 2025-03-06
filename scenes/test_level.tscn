@@ -40,7 +40,7 @@ volumetric_fog_anisotropy = -0.9
 environment = SubResource("Environment_qgqkb")
 
 [node name="player" parent="." instance=ExtResource("2_girxq")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.44614e-05, 0, -162)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.44614e-05, 0.580982, -162)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)

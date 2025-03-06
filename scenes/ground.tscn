@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://qwp7e1uxfo5j"]
+[gd_scene load_steps=4 format=3 uid="uid://qwp7e1uxfo5j"]
+
+[ext_resource type="Material" uid="uid://wrap51uv34ro" path="res://scenes/red_material.tres" id="1_pybca"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ba2ky"]
 size = Vector3(16, 0.113037, 23.9987)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ylpw"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="ground" type="Node3D" groups=["ground"]]
-transform = Transform3D(1.01507, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["ground"]]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.0029)
@@ -17,6 +24,7 @@ shape = SubResource("BoxShape3D_ba2ky")
 [node name="CSGBox3D" type="CSGBox3D" parent="start_point"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.0053)
 size = Vector3(16, 0.103516, 24)
+material = SubResource("StandardMaterial3D_7ylpw")
 
 [node name="position_1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
@@ -24,12 +32,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="position_1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 11.9956)
 size = Vector3(1, 0.106, 24)
+material = ExtResource("1_pybca")
 
 [node name="position_2" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="position_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 11.9956)
 size = Vector3(1, 0.106, 24)
+material = ExtResource("1_pybca")
 
 [node name="position_3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
@@ -37,3 +47,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="position_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0477648, 12.0016)
 size = Vector3(1, 0.106, 24)
+material = ExtResource("1_pybca")
