@@ -15,6 +15,7 @@ uniform float move_speed = -10.0;
 uniform bool smooth_edge = false;
 
 void fragment() {
+	EMISSION = vec3(16.0, 16.0, 16.0);
 	float dist = distance(UV, vec2(0.5,0.5));
 	float rings = sin(dist * ring_frequency + (TIME * move_speed));
 	rings = step(ring_portion, rings);

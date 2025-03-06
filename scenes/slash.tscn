@@ -10,6 +10,7 @@ shader = ExtResource("2_fg1j7")
 shader_parameter/color = Color(0.51, 0.0765, 0.0765, 1)
 shader_parameter/gradient_1_slider = -0.11
 shader_parameter/gradient_1_slider2 = -1.11
+shader_parameter/emission = 15.0
 
 [sub_resource type="Animation" id="Animation_3c2nd"]
 resource_name = "slash"
@@ -100,7 +101,7 @@ _data = {
 script = ExtResource("1_fg1j7")
 
 [node name="Slash" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.248982, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.246713, 0.134695, 0, -0.0335367, 0.990887, 0, 0, 0)
 mesh = ExtResource("1_3c2nd")
 surface_material_override/0 = SubResource("ShaderMaterial_e2dr4")
 

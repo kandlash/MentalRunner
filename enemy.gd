@@ -1,15 +1,17 @@
 extends Area3D
 
 var mesh_slicer = MeshSlicer.new()
-var chance_to_slowmotion = 40
+var chance_to_slowmotion = 25
 
 func start_slow_motion(scale: float = 0.5) -> void:
 	Engine.time_scale = scale
-		
+	AudioServer.playback_speed_scale = 0.8
+	
 # Run the game at normal speed.
 func stop_slow_motion() -> void:
 	Engine.time_scale = 1.0
-		
+	AudioServer.playback_speed_scale = 1
+	
 func take_damage(slicer):
 	$Blood.restart()
 	$AudioStreamPlayer3D.play()
@@ -39,7 +41,7 @@ func take_damage(slicer):
 		rigid_body.collision_mask = 2
 		
 		var collision_shape = CollisionShape3D.new()
-		collision_shape.shape = meshes[i].create_convex_shape()
+		collision_shape.shape = SphereShape3D.new()
 		rigid_body.add_child(collision_shape)
 		
 		# Добавляем RigidBody3D на сцену

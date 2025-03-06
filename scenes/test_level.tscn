@@ -22,10 +22,19 @@ sky_material = SubResource("PanoramaSkyMaterial_ai25w")
 background_mode = 2
 sky = SubResource("Sky_y4m81")
 tonemap_mode = 2
+ssr_max_steps = 454
+ssr_fade_in = 0.191184
+ssr_fade_out = 1.62451
+ssr_depth_tolerance = 40.61
+ssao_enabled = true
+ssao_radius = 16.0
+ssao_intensity = 16.0
+ssao_power = 32.7848
+ssao_horizon = 0.0
+ssao_sharpness = 0.38
+ssao_light_affect = 0.51
+ssao_ao_channel_affect = 0.68
 glow_enabled = true
-glow_intensity = 0.72
-glow_strength = 0.62
-glow_bloom = 0.23
 fog_enabled = true
 fog_light_color = Color(0.129412, 0.0784314, 0, 1)
 fog_light_energy = 0.66
@@ -50,14 +59,14 @@ autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999734, 0.00148571, -0.0230058, 0.0223748, -0.302936, 0.952748, -0.00555378, -0.95301, -0.302888, 0.531036, 19.3742, -13.8539)
-light_energy = 1.029
+light_energy = 0.1
 
 [node name="r_p1" type="Node3D" parent="."]
 
 [node name="ground" parent="r_p1" instance=ExtResource("1_nwp2h")]
 
 [node name="ground9" parent="r_p1" instance=ExtResource("1_nwp2h")]
-transform = Transform3D(1.01507, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+transform = Transform3D(1.01507, 0, 0, 0, 1, 0, 0, 0, 1, -0.122815, 0, -24)
 
 [node name="ground10" parent="r_p1" instance=ExtResource("1_nwp2h")]
 transform = Transform3D(1.01507, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -48)
@@ -814,3 +823,9 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, -2.98023e-08, 0, 2.98023e-08, 1.8, 5.
 
 [node name="enemy17" parent="." instance=ExtResource("11_dw7u0")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, -2.98023e-08, 0, 2.98023e-08, 1.8, -5.4, -224.225, 1365.21)
+
+[node name="side_platform" parent="." instance=ExtResource("6_5opgc")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 14.4959, 6.31728, -108.189)
+
+[node name="from_wall_to_floor" parent="." instance=ExtResource("7_c7uu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2285, 6.36336, -97.112)

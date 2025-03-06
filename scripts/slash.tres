@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=18 format=3 uid="uid://bn3ho8xiy4oto"]
+[gd_resource type="VisualShader" load_steps=19 format=3 uid="uid://bn3ho8xiy4oto"]
 
 [sub_resource type="Gradient" id="Gradient_h5axi"]
 offsets = PackedFloat32Array(0.0287356, 0.258621, 0.333333, 0.62069, 0.678161)
@@ -24,6 +24,9 @@ input_name = "uv"
 default_input_values = [0, Vector2(0, 0), 1, Vector2(1, 0.25)]
 op_type = 0
 operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_p5dix"]
+parameter_name = "emission"
 
 [sub_resource type="Gradient" id="Gradient_p5dix"]
 offsets = PackedFloat32Array(0.16092, 0.310345, 0.5, 0.741379)
@@ -71,6 +74,7 @@ uniform float gradient_1_slider;
 uniform sampler2D tex_frg_2;
 uniform float gradient_1_slider2;
 uniform sampler2D tex_frg_10;
+uniform float emission;
 
 
 
@@ -131,14 +135,20 @@ void fragment() {
 	vec4 n_out9p0 = n_out2p0 * n_out10p0;
 
 
+// FloatParameter:15
+	float n_out15p0 = emission;
+
+
 // Output:0
 	ALBEDO = vec3(n_out7p0.xyz);
 	ALPHA = n_out9p0.x;
+	EMISSION = vec3(n_out15p0);
 
 
 }
 "
-graph_offset = Vector2(-589.597, 288.575)
+graph_offset = Vector2(-389.367, -16.0306)
+nodes/fragment/0/position = Vector2(660, 140)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_wq5wf")
 nodes/fragment/2/position = Vector2(-120, 240)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_vhxnn")
@@ -165,4 +175,6 @@ nodes/fragment/13/node = SubResource("VisualShaderNodeInput_crdvc")
 nodes/fragment/13/position = Vector2(-940, 740)
 nodes/fragment/14/node = SubResource("VisualShaderNodeVectorOp_ivqev")
 nodes/fragment/14/position = Vector2(-560, 680)
-nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 5, 0, 4, 2, 3, 0, 6, 0, 6, 0, 4, 0, 2, 0, 7, 1, 8, 0, 7, 0, 7, 0, 0, 0, 2, 0, 9, 0, 9, 0, 0, 1, 10, 0, 9, 1, 11, 0, 10, 0, 12, 0, 11, 2, 13, 0, 14, 0, 14, 0, 11, 0)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatParameter_p5dix")
+nodes/fragment/15/position = Vector2(120, 560)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 5, 0, 4, 2, 3, 0, 6, 0, 6, 0, 4, 0, 2, 0, 7, 1, 8, 0, 7, 0, 7, 0, 0, 0, 2, 0, 9, 0, 9, 0, 0, 1, 10, 0, 9, 1, 11, 0, 10, 0, 12, 0, 11, 2, 13, 0, 14, 0, 14, 0, 11, 0, 15, 0, 0, 5)
