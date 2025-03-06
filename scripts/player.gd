@@ -27,13 +27,17 @@ var stand_head_y = 1.644
 var is_crouch = false
 var is_wall_running = false
 
+var default_fov = 90.0
+var running_fov = 100.0
+var crouching_fov = 80.0
+var fov_change_speed = 5
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-
 		$head.rotate_y(-event.relative.x * mouse_sensitivity)
 		$head.rotation.y = clampf($head.rotation.y, -deg_to_rad(1), deg_to_rad(90))
 		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -59,6 +63,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0 
 	
 	handle_crouch()
+	handle_fov_change(delta)
 
 	target_x = position_coords[current_position]
 	if Input.is_action_just_pressed("left") and !is_crouch and !is_wall_running:
@@ -101,3 +106,11 @@ func handle_crouch():
 		$CollisionShape3D.position.y = stand_collision_y
 		$head.position.y = stand_head_y
 		is_crouch = false
+
+func handle_fov_change(delta):
+	if is_crouch:
+		camera_3d.fov = lerp(camera_3d.fov, crouching_fov, fov_change_speed * delta)
+	elif is_wall_running:
+		camera_3d.fov = lerp(camera_3d.fov, running_fov, fov_change_speed * delta)
+	else:
+		camera_3d.fov = lerp(camera_3d.fov, default_fov, fov_change_speed * delta)
