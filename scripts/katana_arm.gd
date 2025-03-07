@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:
 		$"../../../AnimationPlayer".play("katana_attack_1")
 		$"../slash".play_animation()
-		$"../katana_attack".play()
+		$"../../../katana_attack".play()
 		$"../attack_area".monitoring = true
 		can_attack = false
 

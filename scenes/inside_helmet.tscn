@@ -1,7 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://br4vkt2tcgk6d"]
+[gd_scene load_steps=22 format=3 uid="uid://04a4s0s8mtx2"]
 
 [ext_resource type="Shader" uid="uid://bn3ho8xiy4oto" path="res://scripts/slash.tres" id="1_7dm7v"]
 [ext_resource type="Script" uid="uid://d2w836ywmsr00" path="res://scripts/inside_helmet.gd" id="1_u6for"]
+[ext_resource type="Script" uid="uid://c0i4gyge1l7ip" path="res://scripts/inside_helmet_box.gd" id="3_q8mwl"]
+[ext_resource type="AudioStream" uid="uid://3x32hg2d1g3n" path="res://assets/sounds/helmet_on_sound.mp3" id="4_oi2cf"]
+[ext_resource type="Script" uid="uid://b3tbmftr716q7" path="res://scripts/helmet_menu_levels.gd" id="5_7nm0f"]
+[ext_resource type="PackedScene" uid="uid://nhhgml6odms6" path="res://scenes/abstract_element.tscn" id="6_28lt0"]
+[ext_resource type="PackedScene" uid="uid://bp2mlujascs73" path="res://assets/models/abstract_cubes_1.fbx" id="7_fxygl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fdhn2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -85,25 +90,6 @@ _data = {
 &"circle": SubResource("Animation_q8mwl")
 }
 
-[sub_resource type="Animation" id="Animation_u6for"]
-resource_name = "boot"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": ["Mental Runner
-boot...", "Mental Runner
-boot...|", "Mental Runner
-boot..."]
-}
-
 [sub_resource type="Animation" id="Animation_7nm0f"]
 length = 0.001
 tracks/0/type = "value"
@@ -119,12 +105,120 @@ tracks/0/keys = {
 "values": ["Mental Runner
 boot..."]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
+
+[sub_resource type="Animation" id="Animation_u6for"]
+resource_name = "boot"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.02, 1.52, 2.03, 2.53, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Mental Runner
+boot...", "Mental Runner
+boot...|", "Mental Runner
+boot...", "Mental Runner
+boot...|", "Mental Runner
+boot...", "Mental Runner
+boot...|", "Done"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.72, 2.81),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [64, 64, 128]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28lt0"]
 _data = {
 &"RESET": SubResource("Animation_7nm0f"),
 &"boot": SubResource("Animation_u6for")
 }
+
+[sub_resource type="Animation" id="Animation_fxygl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_28lt0"]
+resource_name = "open_trans"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73cv6"]
+_data = {
+&"RESET": SubResource("Animation_fxygl"),
+&"open_trans": SubResource("Animation_28lt0")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oi2cf"]
 
 [node name="inside_helmet" type="Node3D"]
 script = ExtResource("1_u6for")
@@ -163,3 +257,444 @@ libraries = {
 &"": SubResource("AnimationLibrary_28lt0")
 }
 autoplay = "boot"
+speed_scale = 1.5
+
+[node name="blocks" type="Node3D" parent="."]
+transform = Transform3D(9.94025, 0, 0, 0, 9.94025, 0, 0, 0, 9.94025, 0, -60.6899, -33.8078)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43386, 7.42706, -6.21329)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112193, 7.42706, -6.21329)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8084, 7.42706, -6.21329)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8084, 7.42706, -6.21329)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00667, 7.42706, -6.21329)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79433, 7.42706, -9.71278)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77416, 7.42706, -9.71278)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48565, 7.42706, -9.71278)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81969, 7.42706, -9.71278)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.008, 7.42706, -9.71278)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.008, 7.42706, -6.58475)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43386, 3.461, -21.1783)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112193, 3.461, -21.1783)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8084, 3.461, -21.1783)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8084, 3.461, -21.1783)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00667, 3.461, -21.1783)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.008, 3.461, -21.5498)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.43386, 12.0721, -11.6648)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112193, 12.0721, -11.6648)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8084, 12.0721, -11.6648)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8084, 12.0721, -11.6648)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00667, 12.0721, -11.6648)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.008, 12.0721, -12.0362)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.008, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.179, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2397, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08348, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2851, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1937, 7.42706, -14.7704)
+script = ExtResource("3_q8mwl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blocks/CSGBox3D16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65635, 0, 1.38323)
+light_energy = 16.0
+
+[node name="helmet_on_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oi2cf")
+volume_db = -5.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 286.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 24
+text = "MENTAL RUNNER v0.01"
+
+[node name="Label2" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.5
+offset_top = -108.0
+offset_right = 152.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "[A]/[D] - SCROLL
+[SPACE]/[E]/[LMB] - SELECT
+[ESC] - EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_73cv6")
+}
+autoplay = "open_trans"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="levels" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+script = ExtResource("5_7nm0f")
+levels_array = Array[String](["res://scenes/test_level.tscn", "", ""])
+
+[node name="level_plane" type="MeshInstance3D" parent="levels"]
+transform = Transform3D(1.84126, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.174, -3.38711)
+mesh = SubResource("PlaneMesh_oi2cf")
+skeleton = NodePath("../../root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/inside_helmet")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="levels/level_plane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30115, -5.68751e-08)
+light_energy = 3.424
+omni_range = 3.0
+
+[node name="level_number" type="Label3D" parent="levels/level_plane"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0633342, -2.76843e-09)
+modulate = Color(0, 0, 0, 1)
+text = "LEVEL 1"
+font_size = 90
+
+[node name="level_plane2" type="MeshInstance3D" parent="levels"]
+transform = Transform3D(1.84126, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 1.174, -3.38711)
+mesh = SubResource("PlaneMesh_oi2cf")
+skeleton = NodePath("../../root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/inside_helmet")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="levels/level_plane2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30115, -5.68751e-08)
+light_energy = 3.424
+omni_range = 3.0
+
+[node name="level_number" type="Label3D" parent="levels/level_plane2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0633342, -2.76843e-09)
+modulate = Color(0, 0, 0, 1)
+text = "LEVEL 2"
+font_size = 90
+
+[node name="level_plane3" type="MeshInstance3D" parent="levels"]
+transform = Transform3D(1.84126, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8, 1.174, -3.38711)
+mesh = SubResource("PlaneMesh_oi2cf")
+skeleton = NodePath("../../root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/inside_helmet")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="levels/level_plane3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30115, -5.68751e-08)
+light_energy = 3.424
+omni_range = 3.0
+
+[node name="level_number" type="Label3D" parent="levels/level_plane3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0633342, -2.76843e-09)
+modulate = Color(0, 0, 0, 1)
+text = "LEVEL 3"
+font_size = 90
+
+[node name="abstract_element" parent="." instance=ExtResource("6_28lt0")]
+transform = Transform3D(0.424264, 0, -0.424264, 0, 0.6, 0, 0.424264, 0, 0.424264, -35, -1, -82)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="abstract_element"]
+transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, 42.4264, 0, -9.76311)
+light_energy = 15.061
+omni_range = 44.0
+
+[node name="abstract_element2" parent="." instance=ExtResource("6_28lt0")]
+transform = Transform3D(-0.148979, 0.408388, 0.413551, 0.15, -0.385441, 0.434667, 0.56152, 0.211315, -0.00639246, 50.236, -27.378, -95.2754)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="abstract_element2"]
+transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, 42.4264, 0, -9.76311)
+light_energy = 15.061
+omni_range = 44.0
+
+[node name="abstract_element3" parent="." instance=ExtResource("6_28lt0")]
+transform = Transform3D(0.209918, -0.555145, 0.0880288, 0.0250883, -0.0846196, -0.593473, 0.56152, 0.211315, -0.00639246, 28.747, -27.378, -198.484)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="abstract_element3"]
+transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, 42.4264, 0, -9.76311)
+light_energy = 15.061
+omni_range = 44.0
+
+[node name="abc" type="Node3D" parent="."]
+
+[node name="abstract_cubes_1" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 12, -36.9763)
+
+[node name="abstract_cubes_2" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 25, -36.9763)
+
+[node name="abstract_cubes_3" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 39, -36.9763)
+
+[node name="abstract_cubes_4" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 53, -36.9763)
+
+[node name="abstract_cubes_5" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 66, -36.9763)
+
+[node name="abstract_cubes_6" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -1, -36.9763)
+
+[node name="abstract_cubes_7" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -14, -36.9763)
+
+[node name="abstract_cubes_8" parent="abc" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -27, -36.9763)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="abc"]
+transform = Transform3D(0.433527, -0.386523, -0.814035, 0.308696, 0.912383, -0.26882, 0.846617, -0.134749, 0.514861, 0, 5.7731, -20.9821)
+light_color = Color(1, 0.4, 0.4, 1)
+light_energy = 6.01
+spot_range = 35.2325
+
+[node name="abc2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2778, 0, -139.611)
+
+[node name="abstract_cubes_1" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 12, -36.9763)
+
+[node name="abstract_cubes_2" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 25, -36.9763)
+
+[node name="abstract_cubes_3" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 39, -36.9763)
+
+[node name="abstract_cubes_4" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 53, -36.9763)
+
+[node name="abstract_cubes_5" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, 66, -36.9763)
+
+[node name="abstract_cubes_6" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -1, -36.9763)
+
+[node name="abstract_cubes_7" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -14, -36.9763)
+
+[node name="abstract_cubes_8" parent="abc2" instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, 16.2902, -27, -36.9763)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="abc2"]
+transform = Transform3D(0.4028, -0.381427, -0.832025, 0.308696, 0.912383, -0.26882, 0.861661, -0.148563, 0.485253, 0, 5.7731, -20.9821)
+spot_range = 68.0134
+
+[node name="abstract_cubes_16" parent="." instance=ExtResource("7_fxygl")]
+transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, -33.2619, -27, -141.015)
+
+[connection signal="animation_finished" from="Label3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

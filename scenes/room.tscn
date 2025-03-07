@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cf44lsern2cbh"]
+[gd_scene load_steps=60 format=3 uid="uid://c02h5goirkiyv"]
 
 [ext_resource type="PackedScene" uid="uid://ch5jj5hcpf0e2" path="res://assets/models/LowPolyDesk.fbx" id="1_tk5fv"]
 [ext_resource type="Texture2D" uid="uid://byyyks17tsjr4" path="res://assets/images/UVLowPolyRoom.png" id="2_23wr2"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://egc14fo5lqk5" path="res://assets/models/LowPolyCurtain.fbx" id="11_2ulci"]
 [ext_resource type="PackedScene" uid="uid://bg7joyy10yw72" path="res://assets/models/LowPolyKeyboard.fbx" id="12_kk8bn"]
 [ext_resource type="PackedScene" uid="uid://cpj0bhnm72euq" path="res://assets/models/LowPolyGarbage.fbx" id="14_3j2fx"]
-[ext_resource type="PackedScene" path="res://scenes/drinks.tscn" id="15_dynfe"]
+[ext_resource type="PackedScene" uid="uid://dnglc4mnyj8et" path="res://scenes/drinks.tscn" id="15_dynfe"]
 [ext_resource type="Script" uid="uid://cwarwgd32nl1x" path="res://scripts/room_camera.gd" id="16_dynfe"]
 [ext_resource type="AudioStream" uid="uid://kylffryta6sm" path="res://assets/sounds/1phrase.mp3" id="17_2ulci"]
 [ext_resource type="PackedScene" uid="uid://b3ah5n4d3pkgr" path="res://assets/models/helmet.fbx" id="17_vfrn5"]

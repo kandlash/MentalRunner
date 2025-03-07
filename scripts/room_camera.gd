@@ -8,7 +8,7 @@ var can_click = true
 @onready var camera_3d_2: Camera3D = $"../Camera3D2"
 @onready var audio_stream_player_3d: AudioStreamPlayer = $AudioStreamPlayer3D
 @export var audios: Array[AudioStream]
-var current_audio = 4
+var current_audio = 0
 @onready var first_garbage: Node3D = $"../first_garbage"
 @onready var second_garbage: Node3D = $"../second_garbage"
 
@@ -113,6 +113,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "drink_animation":
 		$click_cooldown.start()
 		can_click = false
+	elif anim_name == "helmet_on_animation":
+		get_tree().change_scene_to_file("res://scenes/inside_helmet.tscn")
 
 func _on_bed_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "sleep_animation":

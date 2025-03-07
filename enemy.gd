@@ -14,7 +14,8 @@ func stop_slow_motion() -> void:
 	
 func take_damage(slicer):
 	$Blood.restart()
-	$AudioStreamPlayer3D.play()
+	#$AudioStreamPlayer3D.play()
+	$AudioStreamPlayer.play()
 	$CollisionShape3D.disabled = true
 	if randi_range(0, 100) <= chance_to_slowmotion:
 		start_slow_motion(0.1)
