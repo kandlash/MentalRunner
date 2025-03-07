@@ -64,7 +64,7 @@ autoplay = true
 can_use_katana = false
 
 [node name="katana_tip" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 430)
 
 [node name="ground" parent="katana_tip" instance=ExtResource("5_b4j7a")]
 
@@ -132,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 24, 89.
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 36, 110.354)
 
 [node name="ground7" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 48, 131.138)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 30, 133.138)
 
 [node name="ground8" parent="." instance=ExtResource("5_b4j7a")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 41.7883, 154.321)
@@ -153,21 +153,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -15.3
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -15.335, 251.415)
 
 [node name="ground15" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -1.33499, 310.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 310.415)
 
 [node name="ground16" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -1.33499, 334.415)
-
-[node name="ground17" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -1.33499, 358.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 334.415)
 
 [node name="ground18" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -1.33499, 382.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 382.415)
 
 [node name="side_platform" parent="." instance=ExtResource("11_172wr")]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 16, 8, 298)
 
 [node name="from_wall_to_floor" parent="." instance=ExtResource("12_g2hoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, 311)
+
+[node name="side_platform2" parent="." instance=ExtResource("11_172wr")]
+transform = Transform3D(4.37114e-08, 1, -1.31134e-07, 3.82137e-15, 1.31134e-07, 1, 1, -4.37114e-08, 1.91069e-15, -16, 9, 374)
+
+[node name="from_wall_to_floor2" parent="." instance=ExtResource("12_g2hoc")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, 8, 387)
 
 [editable path="in_game_ui"]
