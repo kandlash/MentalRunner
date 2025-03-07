@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://br1u3kv50wn7q"]
+[gd_scene load_steps=18 format=3 uid="uid://br1u3kv50wn7q"]
 
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://cr6pncoc8vt1d" path="res://scenes/side_platform.tscn" id="3_2os1m"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dmsvg8ff56ahp" path="res://assets/sounds/DEMO.mp3" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://nhhgml6odms6" path="res://scenes/abstract_element.tscn" id="12_go7sj"]
 [ext_resource type="PackedScene" uid="uid://bp2mlujascs73" path="res://assets/models/abstract_cubes_1.fbx" id="13_7gny6"]
+[ext_resource type="PackedScene" uid="uid://cnxo6vfjrsd0s" path="res://scenes/restart_area.tscn" id="14_2aecg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fcfvj"]
 panorama = ExtResource("1_rus8k")
@@ -843,5 +844,11 @@ transform = Transform3D(0.510973, -0.840137, 0.181869, -0.733912, -0.536536, -0.
 light_energy = 15.384
 spot_range = 118.0
 spot_angle = 36.6656
+
+[node name="restart_area" parent="." instance=ExtResource("14_2aecg")]
+transform = Transform3D(2.6, 0, 0, 0, 1, 0, 0, 0, 3.7, 0, -134, 1358)
+
+[node name="restart_area2" parent="." instance=ExtResource("14_2aecg")]
+transform = Transform3D(2.6, 0, 0, 0, 1, 0, 0, 0, 3.7, 0, -134, 1468)
 
 [editable path="in_game_ui"]

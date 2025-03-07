@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnxo6vfjrsd0s"]
+
+[ext_resource type="Script" uid="uid://cgn1tuexr01n8" path="res://scripts/restart_area.gd" id="1_enoc3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ponov"]
+size = Vector3(10.3438, 1, 12.9893)
+
+[node name="restart_area" type="Area3D"]
+script = ExtResource("1_enoc3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ponov")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

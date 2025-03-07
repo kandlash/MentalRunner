@@ -551,7 +551,7 @@ light_color = Color(0.4, 0.4, 1, 1)
 omni_range = 0.587603
 
 [node name="LowPolyChair" parent="env" instance=ExtResource("8_jxwrd")]
-transform = Transform3D(-0.999908, 0, -0.0135607, 0, 1, 0, 0.0135607, 0, -0.999908, -0.105092, 0.247178, 1.15499)
+transform = Transform3D(-0.99968, 0, -0.025287, 0, 1, 0, 0.025287, 0, -0.99968, -0.046841, 0.247178, 0.935604)
 
 [node name="Cube_034" parent="env/LowPolyChair" index="0"]
 material_override = SubResource("StandardMaterial3D_kk8bn")

@@ -26,7 +26,7 @@ func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		rotation.y = clampf(rotation.y, deg_to_rad(45), deg_to_rad(170))
-		rotate_z(-event.relative.y * mouse_sensitivity)
+		rotate_z(event.relative.y * mouse_sensitivity)
 		rotation.z =  clampf(rotation.z, -deg_to_rad(10), deg_to_rad(12))
 		rotation.x =  clampf(rotation.x, -deg_to_rad(50), deg_to_rad(20))
 
@@ -128,8 +128,6 @@ func _on_bed_animation_player_animation_finished(anim_name: StringName) -> void:
 		if current_audio >= 3:
 			second_garbage.visible = true
 		if current_audio >=5:
-			first_garbage.visible = false
-			second_garbage.visible = false
 			$"../helmet".visible = true
 			$"../helmet/StaticBody3D/CollisionShape3D".disabled = false
 			$"../drink_collider".queue_free()

@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://brkendctrgna5"]
+[gd_scene load_steps=22 format=3 uid="uid://brkendctrgna5"]
 
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="2_b4j7a"]
+[ext_resource type="AudioStream" uid="uid://dwatrswohh5tc" path="res://assets/sounds/DRIVE(chosic.com).mp3" id="3_172wr"]
 [ext_resource type="PackedScene" uid="uid://bdopo2p8fx6vv" path="res://scenes/player.tscn" id="4_eqxsl"]
-[ext_resource type="AudioStream" uid="uid://dmsvg8ff56ahp" path="res://assets/sounds/DEMO.mp3" id="4_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://qwp7e1uxfo5j" path="res://scenes/ground.tscn" id="5_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://bbfmcc24xben6" path="res://scenes/katana_take_area.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://djqrnepni7en8" path="res://scenes/enemy.tscn" id="7_6cvei"]
@@ -11,7 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://c5qsaieqddkkr" path="res://scenes/tip_area.tscn" id="9_hey2k"]
 [ext_resource type="PackedScene" uid="uid://cb0ktseb0east" path="res://scenes/obstacle1.tscn" id="10_que50"]
 [ext_resource type="PackedScene" uid="uid://cr6pncoc8vt1d" path="res://scenes/side_platform.tscn" id="11_172wr"]
+[ext_resource type="PackedScene" uid="uid://cn46bprwuvehq" path="res://scenes/world_rotator.tscn" id="11_g2hoc"]
 [ext_resource type="PackedScene" uid="uid://1u8vjhd4j4y4" path="res://scenes/from_wall_to_floor.tscn" id="12_g2hoc"]
+[ext_resource type="PackedScene" uid="uid://3wmyu4cad1ei" path="res://assets/models/abstract_tube_test.fbx" id="14_igmy8"]
+[ext_resource type="PackedScene" uid="uid://nhhgml6odms6" path="res://scenes/abstract_element.tscn" id="14_wdtqu"]
+[ext_resource type="PackedScene" uid="uid://cnxo6vfjrsd0s" path="res://scenes/restart_area.tscn" id="15_7qsfm"]
+[ext_resource type="Script" uid="uid://b07io4tx1kuvh" path="res://assets/models/abstract_tube_test.gd" id="15_wdtqu"]
+[ext_resource type="PackedScene" uid="uid://bp2mlujascs73" path="res://assets/models/abstract_cubes_1.fbx" id="16_7qsfm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ne2mo"]
 panorama = ExtResource("1_eqxsl")
@@ -56,8 +62,8 @@ light_energy = 0.1
 [node name="in_game_ui" parent="." instance=ExtResource("2_b4j7a")]
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_y0kc7")
-volume_db = -5.0
+stream = ExtResource("3_172wr")
+volume_db = -8.0
 autoplay = true
 
 [node name="player" parent="." instance=ExtResource("4_eqxsl")]
@@ -67,52 +73,487 @@ can_use_katana = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 430)
 
 [node name="ground" parent="katana_tip" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -186)
 
 [node name="ground3" parent="katana_tip" instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -162)
 
 [node name="ground4" parent="katana_tip" instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 48)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -138)
 
 [node name="ground5" parent="katana_tip" instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 72)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -114)
 
-[node name="ground2" parent="katana_tip" instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+[node name="ground7" parent="katana_tip" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -65)
 
 [node name="katana_take_area" parent="katana_tip" instance=ExtResource("6_wo48x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, -164)
 
 [node name="enemy" parent="katana_tip" instance=ExtResource("7_6cvei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 43)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -143)
 
 [node name="enemy2" parent="katana_tip" instance=ExtResource("7_6cvei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 43)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -17, -143)
+
+[node name="enemy4" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -16, -6.50519, -73.0253)
 
 [node name="enemy3" parent="katana_tip" instance=ExtResource("7_6cvei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 43)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -17, -143)
 
 [node name="slowmotion_zone" parent="katana_tip" instance=ExtResource("8_que50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -158)
 wait_time = 0.5
 
 [node name="tip_area" parent="katana_tip" node_paths=PackedStringArray("label") instance=ExtResource("9_hey2k")]
-transform = Transform3D(12.09, 0, 0, 0, 1.7, 0, 0, 0, 1, 0, 2, 28)
+transform = Transform3D(12.09, 0, 0, 0, 1.7, 0, 0, 0, 1, 0, -15, -158)
 label = NodePath("../../in_game_ui/tip_label")
 tip_time = 1.0
 tip_text = "[LMB] to attack"
 
 [node name="obstacle1" parent="katana_tip" instance=ExtResource("10_que50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -17, -177)
+
+[node name="90" type="Node3D" parent="katana_tip"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -45)
+
+[node name="ground7" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -63, 143)
+
+[node name="ground8" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -63, 167)
+
+[node name="ground9" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -63, 191)
+
+[node name="ground10" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -51, 211.785)
+
+[node name="ground11" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -39, 232.569)
+
+[node name="ground12" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -45.2117, 255.751)
+
+[node name="ground13" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -51.4233, 278.934)
+
+[node name="ground14" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -39.4233, 299.718)
+
+[node name="ground15" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -27.4233, 320.503)
+
+[node name="ground16" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.9233, 340.421)
+
+[node name="ground17" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.9233, 364.421)
+
+[node name="ground18" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.9233, 388.421)
+
+[node name="ground19" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.9233, 412.421)
+
+[node name="ground20" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.9233, 436.421)
+
+[node name="ground21" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.92332, 497.421)
+
+[node name="ground22" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.92332, 548.421)
+
+[node name="ground23" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.92332, 572.421)
+
+[node name="ground24" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -1.92332, 596.421)
+
+[node name="ground25" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 15.0472, 613.392)
+
+[node name="ground26" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 32.0178, 630.363)
+
+[node name="ground28" parent="katana_tip/90" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -1.92332, 664.304)
+
+[node name="enemy" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -63, 169)
+
+[node name="enemy2" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -63, 186)
+
+[node name="enemy4" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -55.134, 204.624)
+
+[node name="enemy8" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -55.134, 204.624)
+
+[node name="enemy9" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -50.634, 212.419)
+
+[node name="enemy10" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -46.134, 220.213)
+
+[node name="enemy5" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -50.134, 213.285)
+
+[node name="enemy6" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -46.134, 220.213)
+
+[node name="enemy7" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -40.134, 230.605)
+
+[node name="enemy13" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 5, -50.6433, 274.628)
+
+[node name="enemy15" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -40.1792, 298.995)
+
+[node name="enemy16" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6, -30.6792, 315.449)
+
+[node name="enemy17" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -32.6792, 311.985)
+
+[node name="enemy18" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -16.6792, 356.43)
+
+[node name="enemy19" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -16.6792, 392.43)
+
+[node name="enemy20" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -16.6792, 392.43)
+
+[node name="enemy21" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.6792, 420.43)
+
+[node name="enemy22" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.6792, 439.43)
+
+[node name="enemy23" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -16.6792, 439.43)
+
+[node name="enemy25" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 2.32078, 486.43)
+
+[node name="enemy24" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -16.6792, 439.43)
+
+[node name="enemy14" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -6, -50.6433, 274.628)
+
+[node name="enemy11" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -40.134, 230.605)
+
+[node name="enemy3" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -63, 186)
+
+[node name="obstacle1" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -63, 169)
+
+[node name="obstacle23" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -15, 357)
+
+[node name="obstacle24" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 357)
+
+[node name="obstacle25" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -15, 386)
+
+[node name="obstacle29" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -15, 409)
+
+[node name="obstacle30" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -15, 409)
+
+[node name="obstacle28" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -14, 409)
+
+[node name="obstacle27" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -14, 386)
+
+[node name="obstacle26" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -14, 386)
+
+[node name="obstacle13" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -5, -44.8823, 254.489)
+
+[node name="obstacle14" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 5, -44.8823, 254.489)
+
+[node name="obstacle16" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -39.3445, 299.779)
+
+[node name="obstacle17" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -39.3445, 299.779)
+
+[node name="obstacle18" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -29.8445, 316.234)
+
+[node name="obstacle19" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -29.8445, 316.234)
+
+[node name="obstacle20" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -21.6124, 326.492)
+
+[node name="obstacle21" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -23.3445, 327.492)
+
+[node name="obstacle22" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -23.3445, 327.492)
+
+[node name="obstacle15" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -50.0587, 273.807)
+
+[node name="obstacle2" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -63, 169)
+
+[node name="obstacle3" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -63, 186)
+
+[node name="obstacle4" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -53.8038, 202.928)
+
+[node name="obstacle10" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -50.3038, 208.99)
+
+[node name="obstacle11" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -46.3038, 215.919)
+
+[node name="obstacle12" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, -42.3038, 222.847)
+
+[node name="obstacle5" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -53.8038, 202.928)
+
+[node name="obstacle7" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -50.3038, 208.99)
+
+[node name="obstacle8" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -46.3038, 215.919)
+
+[node name="obstacle9" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, -42.3038, 222.847)
+
+[node name="obstacle6" parent="katana_tip/90" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -54.6699, 203.428)
+
+[node name="side_platform" parent="katana_tip/90" instance=ExtResource("11_172wr")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 17, 0.999999, 480)
+
+[node name="from_wall_to_floor" parent="katana_tip/90" instance=ExtResource("12_g2hoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 491)
+
+[node name="enemy26" parent="katana_tip/90" instance=ExtResource("7_6cvei")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -16, 11.5597, 543.43)
+
+[node name="side_platform2" parent="katana_tip/90" instance=ExtResource("11_172wr")]
+transform = Transform3D(4.37114e-08, 1, 4.37114e-08, -3.82137e-15, -4.37114e-08, 1, 1, -4.37114e-08, 1.91069e-15, -17, 9.88052, 537)
+
+[node name="from_wall_to_floor2" parent="katana_tip/90" instance=ExtResource("12_g2hoc")]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -15, 9.88052, 548)
+
+[node name="world_rotator" parent="katana_tip/90" node_paths=PackedStringArray("world_point") instance=ExtResource("11_g2hoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97313, -10.3831, 689.027)
+rotate_degree = 0
+world_point = NodePath("../../180")
+
+[node name="obstacle2" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -10, 17)
+
+[node name="obstacle11" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, 17)
+
+[node name="180" type="Node3D" parent="katana_tip"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ground29" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 645.274)
+
+[node name="ground30" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 669.274)
+
+[node name="ground31" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 693.274)
+
+[node name="ground32" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 717.274)
+
+[node name="ground33" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 741.274)
+
+[node name="ground34" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 765.274)
+
+[node name="ground35" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 820.274)
+
+[node name="ground36" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -125.894, 907.274)
+
+[node name="ground37" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -125.894, 931.274)
+
+[node name="side_platform3" parent="katana_tip/180" instance=ExtResource("11_172wr")]
+transform = Transform3D(-4.37114e-08, 1, -1.31134e-07, 0, 1.31134e-07, 1, 1, 4.37114e-08, -5.73205e-15, -21, -49, 804)
+
+[node name="side_platform4" parent="katana_tip/180" instance=ExtResource("11_172wr")]
+transform = Transform3D(-4.37114e-08, -1, 2.18557e-07, 0, -2.18557e-07, -1, 1, -4.37114e-08, 9.55343e-15, 22, -51, 878)
+
+[node name="from_wall_to_floor3" parent="katana_tip/180" instance=ExtResource("12_g2hoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -50, 814)
+
+[node name="from_wall_to_floor4" parent="katana_tip/180" instance=ExtResource("12_g2hoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -50, 890)
+
+[node name="enemy15" parent="katana_tip/180" instance=ExtResource("7_6cvei")]
+transform = Transform3D(-1, 8.74228e-08, 2.6054e-15, 8.74228e-08, 1, 2.98023e-08, 0, 2.98023e-08, -1, -1.09995e-05, -125.82, 940.891)
+
+[node name="enemy16" parent="katana_tip/180" instance=ExtResource("7_6cvei")]
+transform = Transform3D(-1, 8.74228e-08, 2.6054e-15, 8.74228e-08, 1, 2.98023e-08, 0, 2.98023e-08, -1, -1.09995e-05, -125.82, 954.891)
+
+[node name="obstacle12" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 31)
 
 [node name="obstacle3" parent="katana_tip" instance=ExtResource("10_que50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -17, -177)
 
 [node name="obstacle4" parent="katana_tip" instance=ExtResource("10_que50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -17, -164)
+
+[node name="obstacle6" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -16, -121)
+
+[node name="obstacle7" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -121)
+
+[node name="obstacle9" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -17, -102)
+
+[node name="obstacle10" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -102)
+
+[node name="obstacle8" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -17, -121)
 
 [node name="obstacle5" parent="katana_tip" instance=ExtResource("10_que50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -17, -164)
+
+[node name="slowmotion_zone2" parent="katana_tip" instance=ExtResource("8_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5987, -8.26372, -80.5894)
+wait_time = 0.3
+
+[node name="world_rotator" parent="katana_tip" node_paths=PackedStringArray("world_point") instance=ExtResource("11_g2hoc")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 0.0268707, -0.383083, 76.027)
+rotate_degree = 0
+world_point = NodePath("../90")
+
+[node name="obstacle13" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 535)
+
+[node name="obstacle14" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2, 535)
+
+[node name="obstacle15" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, 535)
+
+[node name="enemy5" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 544)
+
+[node name="enemy12" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 19.6569, 572.728)
+
+[node name="enemy14" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 30.2635, 583.335)
+
+[node name="enemy13" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.63604, 560.707)
+
+[node name="enemy6" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 685)
+
+[node name="enemy7" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -59, 694)
+
+[node name="enemy8" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -59, 720)
+
+[node name="enemy10" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 762)
+
+[node name="enemy11" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 840)
+
+[node name="enemy9" parent="katana_tip" instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -59, 714)
+
+[node name="obstacle16" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 694)
+
+[node name="obstacle17" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -59, 694)
+
+[node name="obstacle18" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 721)
+
+[node name="obstacle21" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59, 735)
+
+[node name="obstacle23" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -57, 756)
+
+[node name="obstacle24" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -59, 756)
+
+[node name="obstacle25" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -59, 756)
+
+[node name="obstacle22" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -57, 735)
+
+[node name="obstacle20" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -57, 735)
+
+[node name="obstacle19" parent="katana_tip" instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -57, 721)
+
+[node name="abstract_element" parent="katana_tip" instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 102.675, 44.7207, 285)
+
+[node name="abstract_element2" parent="katana_tip" instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, -27.6387, -117.064, 441)
+
+[node name="abstract_element3" parent="katana_tip" instance=ExtResource("14_wdtqu")]
+transform = Transform3D(1, 5.96046e-08, 5.2108e-15, 5.96046e-08, -1, -8.74228e-08, 0, 8.74228e-08, -1, -96.2194, -98.6882, 506)
+
+[node name="abstract_element4" parent="katana_tip" instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.707107, 0.707107, 7.10543e-15, 0.707107, -0.707107, -8.74228e-08, -6.18172e-08, 6.18172e-08, -1, 61.7806, 77.3118, 531)
+
+[node name="restart_area" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.2, 0, -22, -78)
+
+[node name="restart_area2" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.2, 0, -23, -27.4)
+
+[node name="restart_area3" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2.2, 0, -15, 45.2)
+
+[node name="restart_area4" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.28, 1, -23, 428.56)
+
+[node name="restart_area5" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.28, 1, -11, 490.12)
+
+[node name="restart_area6" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2.4, 0, 0, 0, 1, 0, 0, 0, 2.88, 1, -66, 800.76)
+
+[node name="restart_area7" parent="katana_tip" instance=ExtResource("15_7qsfm")]
+transform = Transform3D(2.4, 0, 0, 0, 1, 0, 0, 0, 2.88, 1, -66, 858.36)
 
 [node name="ground" parent="." instance=ExtResource("5_b4j7a")]
 
@@ -143,34 +584,152 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 
 [node name="ground10" parent="." instance=ExtResource("5_b4j7a")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 18.6061, 194.473)
 
-[node name="ground11" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.63557, 211.444)
-
-[node name="ground12" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -15.335, 228.415)
-
 [node name="ground13" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -15.335, 251.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -15.335, 220.415)
 
 [node name="ground15" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 310.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -10, 422.415)
 
 [node name="ground16" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 334.415)
-
-[node name="ground18" parent="." instance=ExtResource("5_b4j7a")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 382.415)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -10, 446.415)
 
 [node name="side_platform" parent="." instance=ExtResource("11_172wr")]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 16, 8, 298)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 16, -2, 410)
 
 [node name="from_wall_to_floor" parent="." instance=ExtResource("12_g2hoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, 311)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1, 423)
 
 [node name="side_platform2" parent="." instance=ExtResource("11_172wr")]
-transform = Transform3D(4.37114e-08, 1, -1.31134e-07, 3.82137e-15, 1.31134e-07, 1, 1, -4.37114e-08, 1.91069e-15, -16, 9, 374)
+transform = Transform3D(4.37114e-08, 1, -1.31134e-07, 3.82137e-15, 1.31134e-07, 1, 1, -4.37114e-08, 1.91069e-15, -16, 6, 486)
 
 [node name="from_wall_to_floor2" parent="." instance=ExtResource("12_g2hoc")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, 8, 387)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, 5, 499)
+
+[node name="side_platform3" parent="." instance=ExtResource("11_172wr")]
+transform = Transform3D(4.37114e-08, 1, -1.31134e-07, 3.82137e-15, 1.31134e-07, 1, 1, -4.37114e-08, 1.91069e-15, -16, -8, 352)
+
+[node name="from_wall_to_floor3" parent="." instance=ExtResource("12_g2hoc")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, -9, 365)
+
+[node name="obstacle1" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38)
+
+[node name="obstacle2" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10.366, 64.9545)
+
+[node name="obstacle5" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, 18.866, 79.6769)
+
+[node name="obstacle6" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, 18.866, 79.6769)
+
+[node name="obstacle8" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 28.366, 96.1314)
+
+[node name="obstacle9" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, 36.866, 110.854)
+
+[node name="obstacle10" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, 36.866, 110.854)
+
+[node name="obstacle11" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 45.732, 124.21)
+
+[node name="obstacle12" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, 45.732, 124.21)
+
+[node name="obstacle13" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, 45.732, 124.21)
+
+[node name="obstacle7" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 19.732, 79.1769)
+
+[node name="obstacle3" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 5, 11.232, 64.4545)
+
+[node name="obstacle4" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -5, 11.232, 64.4545)
+
+[node name="obstacle14" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 24.5564, 191.272)
+
+[node name="obstacle18" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -5, 23.1421, 189.858)
+
+[node name="obstacle15" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 5, 23.1421, 189.858)
+
+[node name="obstacle16" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 5, 11.1213, 201.879)
+
+[node name="obstacle17" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 12.5355, 203.293)
+
+[node name="obstacle19" parent="." instance=ExtResource("10_que50")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -5, 11.1213, 201.879)
+
+[node name="enemy" parent="." instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 446)
+
+[node name="enemy2" parent="." instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -10, 460)
+
+[node name="enemy3" parent="." instance=ExtResource("7_6cvei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, 460)
+
+[node name="abstract_tube_test" parent="." instance=ExtResource("14_igmy8")]
+transform = Transform3D(0.183013, -0.183013, -0.965926, 0.707107, 0.707107, 0, 0.683013, -0.683013, 0.258819, -38.7636, 33, 91.2854)
+script = ExtResource("15_wdtqu")
+
+[node name="abstract_cubes_1" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.3762, 6, 52.0624)
+
+[node name="abstract_cubes_2" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.3762, 19, 52.0624)
+
+[node name="abstract_cubes_3" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(0.612372, -0.5, 0.612372, 0.353553, 0.866025, 0.353553, -0.707107, 0, 0.707107, 14.3762, 32, 52.0624)
+
+[node name="abstract_cubes_4" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(0.612372, -0.5, 0.612372, 0.353553, 0.866025, 0.353553, -0.707107, 0, 0.707107, 6.87615, 44.9904, 52.0624)
+
+[node name="abstract_cubes_5" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -21.5253, 6, 205.367)
+
+[node name="abstract_cubes_6" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -21.5253, 19, 205.367)
+
+[node name="abstract_cubes_7" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.774519, 0.482963, -0.408494, 0.353553, 0.866025, 0.353553, 0.524519, 0.12941, -0.841506, -12.4662, 67.0018, 207.794)
+
+[node name="abstract_cubes_8" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.774519, 0.482963, -0.408494, 0.353553, 0.866025, 0.353553, 0.524519, 0.12941, -0.841506, -5.22174, 79.9922, 209.736)
+
+[node name="abstract_cubes_9" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 30.7783, -11.0078, 192.736)
+
+[node name="abstract_cubes_10" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 26.9861, 2.34647, 194.547)
+
+[node name="abstract_cubes_11" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 22.9231, 16.6546, 196.488)
+
+[node name="abstract_cubes_12" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 19.6727, 28.1012, 198.041)
+
+[node name="abstract_cubes_13" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 15.8806, 41.4555, 199.853)
+
+[node name="abstract_cubes_14" parent="." instance=ExtResource("16_7qsfm")]
+transform = Transform3D(-0.797668, -0.270866, -0.538849, -0.297668, 0.953879, -0.0388485, 0.524519, 0.12941, -0.841506, 12.3594, 53.8559, 201.535)
+
+[node name="abstract_element" parent="." instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 47, 77, 312)
+
+[node name="abstract_element2" parent="." instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -116.82, -97.2558, 312)
+
+[node name="abstract_element3" parent="." instance=ExtResource("14_wdtqu")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -48.5045, 48.4186, 455)
 
 [editable path="in_game_ui"]

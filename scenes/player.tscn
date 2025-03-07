@@ -16,7 +16,7 @@
 albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjrip"]
-size = Vector3(0.363281, 2.15808, 6.93213)
+size = Vector3(0.363281, 2.15808, 5.65607)
 
 [sub_resource type="Animation" id="Animation_fjrip"]
 length = 0.001
@@ -168,7 +168,7 @@ transform = Transform3D(-7.57168, 0.645872, -1.25193, 1.0824, 3.87451, 0.802931,
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/Camera3D/attack_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3145e-13, -0.281799, -4.36379)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77636e-14, -0.281799, -3.72576)
 shape = SubResource("BoxShape3D_fjrip")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head"]
