@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://da4txkdwr0d8r"]
+[gd_scene load_steps=12 format=3 uid="uid://da4txkdwr0d8r"]
 
 [ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_0fyj3"]
 [ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_nodfy"]
-[ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="3_qidth"]
 [ext_resource type="AudioStream" uid="uid://biad5fsmegwct" path="res://assets/sounds/katana_attack.mp3" id="4_fv1u3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2n2h4"]
@@ -162,8 +161,6 @@ root_node = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_1jxqw")
 }
-
-[node name="in_game_ui" parent="." instance=ExtResource("3_qidth")]
 
 [node name="katana_attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_fv1u3")

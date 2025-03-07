@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://brkendctrgna5"]
+[gd_scene load_steps=23 format=3 uid="uid://brkendctrgna5"]
 
+[ext_resource type="Script" uid="uid://b1oeu0qewaf44" path="res://scripts/level_menu.gd" id="1_bv48q"]
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="2_b4j7a"]
 [ext_resource type="AudioStream" uid="uid://dwatrswohh5tc" path="res://assets/sounds/DRIVE(chosic.com).mp3" id="3_172wr"]
@@ -51,6 +52,7 @@ volumetric_fog_density = 0.25
 volumetric_fog_anisotropy = -0.9
 
 [node name="level_2" type="Node3D"]
+script = ExtResource("1_bv48q")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6cvei")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://br1u3kv50wn7q"]
+[gd_scene load_steps=19 format=3 uid="uid://br1u3kv50wn7q"]
 
+[ext_resource type="Script" uid="uid://b1oeu0qewaf44" path="res://scripts/level_menu.gd" id="1_6dial"]
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://cr6pncoc8vt1d" path="res://scenes/side_platform.tscn" id="3_2os1m"]
 [ext_resource type="PackedScene" uid="uid://qwp7e1uxfo5j" path="res://scenes/ground.tscn" id="3_4nkto"]
@@ -47,6 +48,7 @@ volumetric_fog_density = 0.25
 volumetric_fog_anisotropy = -0.9
 
 [node name="level_1" type="Node3D"]
+script = ExtResource("1_6dial")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pa8r4")
@@ -356,6 +358,7 @@ tip_time = 0.5
 tip_text = "[A] to move left"
 
 [node name="player" parent="." instance=ExtResource("7_pa8r4")]
+can_use_katana = false
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_15mv3")

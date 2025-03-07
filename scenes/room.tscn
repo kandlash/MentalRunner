@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c02h5goirkiyv"]
+[gd_scene load_steps=62 format=3 uid="uid://c02h5goirkiyv"]
 
 [ext_resource type="Script" uid="uid://duxcb0gucod5h" path="res://scripts/room.gd" id="1_0tws2"]
 [ext_resource type="PackedScene" uid="uid://ch5jj5hcpf0e2" path="res://assets/models/LowPolyDesk.fbx" id="1_tk5fv"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://8gb8f4prp5oj" path="res://assets/sounds/5phrase.mp3" id="21_mc3m6"]
 [ext_resource type="AudioStream" uid="uid://dlfh84dfs6lko" path="res://assets/sounds/6phrase.mp3" id="22_a5qmg"]
 [ext_resource type="AudioStream" uid="uid://dlxxjowuo6340" path="res://assets/sounds/dark in the night.wav" id="24_a5qmg"]
+[ext_resource type="PackedScene" uid="uid://gyykiqnijm0b" path="res://scenes/RadialProgress.tscn" id="26_2ftkj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ulci"]
 albedo_texture = ExtResource("2_23wr2")
@@ -635,9 +636,10 @@ transform = Transform3D(-0.000736976, -0.0595972, 0.0207761, 0.0631148, -0.00069
 transform = Transform3D(-0.000736976, -0.0537358, 0.033105, 0.0631148, -0.00062746, 0.00038656, -1.42115e-11, 0.0331073, 0.0537394, -0.750887, 0.684001, 0.770876)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0430066, -0.219747, 0.974609, 0.000737167, 0.975504, 0.219981, -0.999075, 0.0101791, -0.0417911, 0.0306712, 1.00178, 0.980444)
+transform = Transform3D(-0.0430066, -0.219747, 0.974608, 0.000737167, 0.975504, 0.219981, -0.999075, 0.0101791, -0.0417911, 0.0306712, 1.00178, 0.980444)
 script = ExtResource("16_dynfe")
 audios = Array[AudioStream]([ExtResource("17_2ulci"), ExtResource("18_kk8bn"), ExtResource("19_mc3m6"), ExtResource("20_a5qmg"), ExtResource("21_mc3m6"), ExtResource("22_a5qmg"), ExtResource("21_0tws2")])
+audios_subs = Array[String](["- Each day is like the one before it.", "- I drink, I sleep. I do nothing.", "- Apathy, depression, I don't know.", "- When was the last time I saw the sun, people, life?", "- I don't want to turn into nothing.", "I'm gonna fight", "This helmet, this technology. It has something to do with mental health."])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {
@@ -652,6 +654,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Camera3D"]
+volume_db = 5.0
 
 [node name="Music" type="AudioStreamPlayer" parent="Camera3D"]
 stream = ExtResource("24_a5qmg")
@@ -738,6 +741,44 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "Hold [SPACE] to skip"
+
+[node name="Control" parent="ui" instance=ExtResource("26_2ftkj")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -243.0
+offset_top = -30.0
+offset_right = -243.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+radius = 19.71
+progress = 48.02
+thickness = 5.155
+bg_color = Color(0.5, 0.5, 0.5, 0)
+bar_color = Color(1, 1, 1, 1)
+ring = true
+
+[node name="subtitles" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.5
+offset_top = -131.0
+offset_right = 52.5
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.03349, 1.03349)
+theme_override_colors/font_shadow_color = Color(1, 0.19, 0.19, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="sleep_collider" type="StaticBody3D" parent="." groups=["sleep"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0207066, 0.34279, 2.11187)

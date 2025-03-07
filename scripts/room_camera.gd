@@ -8,6 +8,8 @@ var can_click = true
 @onready var camera_3d_2: Camera3D = $"../Camera3D2"
 @onready var audio_stream_player_3d: AudioStreamPlayer = $AudioStreamPlayer3D
 @export var audios: Array[AudioStream]
+@export var audios_subs: Array[String]
+
 var current_audio = 0
 @onready var first_garbage: Node3D = $"../first_garbage"
 @onready var second_garbage: Node3D = $"../second_garbage"
@@ -62,6 +64,7 @@ func play_audio():
 	if current_audio < audios.size():
 		$AudioStreamPlayer3D.stream = audios[current_audio]
 		$AudioStreamPlayer3D.play()
+		$"../ui/subtitles".text = audios_subs[current_audio]
 		current_audio = current_audio + 1
 
 func handle_drink_input(collider: Object) -> void:
@@ -135,5 +138,6 @@ func _on_bed_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_audio_stream_player_3d_finished() -> void:
+	$"../ui/subtitles".text = ""
 	if current_audio == 7:
 		pass

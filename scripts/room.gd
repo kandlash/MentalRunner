@@ -8,6 +8,9 @@ var press_timer: float = 0.0
 # Флаг, чтобы отслеживать, зажата ли клавиша
 var is_key_pressed: bool = false
 
+# Ссылка на RadialProgress
+@onready var radial_progress: RadialProgress = $ui/Control
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_accept"):
 		if not is_key_pressed:
@@ -15,8 +18,11 @@ func _process(delta: float) -> void:
 			press_timer = 0.0 
 		press_timer += delta
 		
-		# Если таймер достиг 3 секунд
-		if press_timer >= 2.0:
+		# Обновляем прогресс-бар
+		radial_progress.progress = (press_timer / 1.0) * radial_progress.max_value
+		
+		# Если таймер достиг 1.5 секунд
+		if press_timer >= 1.0:
 			get_tree().change_scene_to_file("res://scenes/inside_helmet.tscn")
 			reset()  # Сбрасываем состояние
 	else:
@@ -27,3 +33,4 @@ func _process(delta: float) -> void:
 func reset() -> void:
 	is_key_pressed = false
 	press_timer = 0.0
+	radial_progress.progress = 0.0  # Сбрасываем прогресс-бар

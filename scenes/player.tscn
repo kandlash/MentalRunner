@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdopo2p8fx6vv"]
+[gd_scene load_steps=18 format=3 uid="uid://bdopo2p8fx6vv"]
 
 [ext_resource type="Script" uid="uid://tun3bi6j5fvn" path="res://scripts/player.gd" id="1_i5426"]
 [ext_resource type="Script" uid="uid://tcayh84fosqm" path="res://scripts/camera_3d.gd" id="2_k416p"]
 [ext_resource type="Script" uid="uid://cvvkf08tvkygw" path="res://scripts/katana_arm.gd" id="3_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://scenes/katana.tscn" id="3_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://u4i0cvq0bqej" path="res://scenes/in_game_ui.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dkdhlk6c34w6h" path="res://scenes/slash.tscn" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://biad5fsmegwct" path="res://assets/sounds/katana_attack.mp3" id="7_fjrip"]
 
@@ -195,8 +194,6 @@ root_node = NodePath("../head/Camera3D/katana_arm")
 libraries = {
 &"": SubResource("AnimationLibrary_1jxqw")
 }
-
-[node name="in_game_ui" parent="." instance=ExtResource("5_qlg0r")]
 
 [node name="katana_attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fjrip")
