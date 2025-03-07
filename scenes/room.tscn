@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c02h5goirkiyv"]
+[gd_scene load_steps=60 format=3 uid="uid://cf44lsern2cbh"]
 
 [ext_resource type="PackedScene" uid="uid://ch5jj5hcpf0e2" path="res://assets/models/LowPolyDesk.fbx" id="1_tk5fv"]
 [ext_resource type="Texture2D" uid="uid://byyyks17tsjr4" path="res://assets/images/UVLowPolyRoom.png" id="2_23wr2"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://egc14fo5lqk5" path="res://assets/models/LowPolyCurtain.fbx" id="11_2ulci"]
 [ext_resource type="PackedScene" uid="uid://bg7joyy10yw72" path="res://assets/models/LowPolyKeyboard.fbx" id="12_kk8bn"]
 [ext_resource type="PackedScene" uid="uid://cpj0bhnm72euq" path="res://assets/models/LowPolyGarbage.fbx" id="14_3j2fx"]
-[ext_resource type="PackedScene" uid="uid://dnglc4mnyj8et" path="res://scenes/drinks.tscn" id="15_dynfe"]
+[ext_resource type="PackedScene" path="res://scenes/drinks.tscn" id="15_dynfe"]
 [ext_resource type="Script" uid="uid://cwarwgd32nl1x" path="res://scripts/room_camera.gd" id="16_dynfe"]
 [ext_resource type="AudioStream" uid="uid://kylffryta6sm" path="res://assets/sounds/1phrase.mp3" id="17_2ulci"]
 [ext_resource type="PackedScene" uid="uid://b3ah5n4d3pkgr" path="res://assets/models/helmet.fbx" id="17_vfrn5"]
@@ -53,6 +53,33 @@ emission_enabled = true
 emission = Color(0.42, 0.497333, 1, 1)
 emission_energy_multiplier = 1.9
 
+[sub_resource type="Animation" id="Animation_dynfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_025:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_3j2fx"]
 resource_name = "monitor_blinks"
 length = 1.5
@@ -80,33 +107,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.5, 1.2, 0.6, 1.0, 0.3, 1.0, 0.5, 0.8, 0.4, 1.0, 0.5]
-}
-
-[sub_resource type="Animation" id="Animation_dynfe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cube_025:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.9]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vfrn5"]
@@ -149,70 +149,6 @@ albedo_texture = ExtResource("2_23wr2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cm04"]
 albedo_texture = ExtResource("2_23wr2")
-
-[sub_resource type="Animation" id="Animation_bwmvn"]
-resource_name = "drink_animation"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.00009, 4.03333),
-"transitions": PackedFloat32Array(12.9961, 12.9961, 12.9961),
-"update": 0,
-"values": [Vector3(0.0306712, 1.00178, 0.980444), Vector3(-0.069, 0.947, 0.98), Vector3(0.0306712, 1.00178, 0.980444)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.00146, 2.00428, 2.5067, 2.6, 2.90403, 3, 3.26667, 3.33333, 4.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 0.406126, 0.406126, 0.63728, 0.63728, 0.574349, 0.574349, 1),
-"update": 0,
-"values": [Vector3(-0.221795, 1.61365, 0.000755678), Vector3(-0.221795, 1.61365, 0.000755678), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(-0.221795, 1.61365, 0.000755678)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Drinks:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
-"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.558, 0.768, 0.948), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.533092, 0.767737, 0.946378)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Drinks:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.933333, 4.04554),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Drinks:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
-"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.00872665, 0.0261799, 0), Vector3(0, 0, 0), Vector3(0, 0, -1.25828), Vector3(0, 0, -1.25828), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_qwukm"]
 length = 0.001
@@ -313,6 +249,70 @@ tracks/7/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_bwmvn"]
+resource_name = "drink_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.00009, 4.03333),
+"transitions": PackedFloat32Array(12.9961, 12.9961, 12.9961),
+"update": 0,
+"values": [Vector3(0.0306712, 1.00178, 0.980444), Vector3(-0.069, 0.947, 0.98), Vector3(0.0306712, 1.00178, 0.980444)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.00146, 2.00428, 2.5067, 2.6, 2.90403, 3, 3.26667, 3.33333, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 0.406126, 0.406126, 0.63728, 0.63728, 0.574349, 0.574349, 1),
+"update": 0,
+"values": [Vector3(-0.221795, 1.61365, 0.000755678), Vector3(-0.221795, 1.61365, 0.000755678), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(-0.221795, 1.61365, 0.000755678)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Drinks:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.558, 0.768, 0.948), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.533092, 0.767737, 0.946378)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Drinks:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.933333, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Drinks:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.00872665, 0.0261799, 0), Vector3(0, 0, 0), Vector3(0, 0, -1.25828), Vector3(0, 0, -1.25828), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_jxwrd"]
 resource_name = "helmet_on_animation"
 length = 6.0
@@ -384,6 +384,45 @@ _data = {
 &"helmet_on_animation": SubResource("Animation_jxwrd")
 }
 
+[sub_resource type="Animation" id="Animation_katsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.492765, 0.748543, 2.3056)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.470234, 1.02757, -0.336754)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ui/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_vfrn5"]
 resource_name = "sleep_animation"
 length = 6.0
@@ -422,45 +461,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.533333), Color(0, 0, 0, 0), Color(0, 0, 0, 0.631373), Color(0, 0, 0, 0.709804), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_katsu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.492765, 0.748543, 2.3056)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.470234, 1.02757, -0.336754)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ui/ColorRect:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jxwrd"]
@@ -633,7 +633,7 @@ transform = Transform3D(-0.000736976, -0.0595972, 0.0207761, 0.0631148, -0.00069
 transform = Transform3D(-0.000736976, -0.0537358, 0.033105, 0.0631148, -0.00062746, 0.00038656, -1.42115e-11, 0.0331073, 0.0537394, -0.750887, 0.684001, 0.770876)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0430039, -0.219747, 0.974609, 0.000737167, 0.975504, 0.219981, -0.999075, 0.0101785, -0.0417884, 0.0306712, 1.00178, 0.980444)
+transform = Transform3D(-0.0430066, -0.219747, 0.974609, 0.000737167, 0.975504, 0.219981, -0.999075, 0.0101791, -0.0417911, 0.0306712, 1.00178, 0.980444)
 script = ExtResource("16_dynfe")
 audios = Array[AudioStream]([ExtResource("17_2ulci"), ExtResource("18_kk8bn"), ExtResource("19_mc3m6"), ExtResource("20_a5qmg"), ExtResource("21_mc3m6"), ExtResource("22_a5qmg"), ExtResource("21_0tws2")])
 
@@ -657,7 +657,7 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(0.359702, 0.536881, 0.763133, -0.294562, 0.841391, -0.453095, -0.885352, -0.0618104, 0.460795, 0.492765, 0.748543, 2.3056)
+transform = Transform3D(0.359706, 0.536881, 0.763132, -0.294562, 0.841391, -0.453095, -0.885351, -0.0618087, 0.460797, 0.492765, 0.748543, 2.3056)
 
 [node name="bed_animation_player" type="AnimationPlayer" parent="Camera3D2"]
 libraries = {
@@ -727,7 +727,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0207066, 0.34279, 2.11187)
 shape = SubResource("BoxShape3D_vfrn5")
 
 [node name="helmet" parent="." instance=ExtResource("17_vfrn5")]
-transform = Transform3D(0.0899511, 0, 0.115431, 0, 0.14634, 0, -0.115431, 0, 0.0899511, -0.4474, 0.645404, 1.12078)
+transform = Transform3D(0.0899512, 0, 0.115431, 0, 0.14634, 0, -0.115431, 0, 0.0899512, -0.4474, 0.645404, 1.12078)
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="helmet" groups=["helmet"]]
@@ -739,6 +739,7 @@ disabled = true
 
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Camera3D/click_cooldown" to="Camera3D" method="_on_click_cooldown_timeout"]
+[connection signal="finished" from="Camera3D/AudioStreamPlayer3D" to="Camera3D" method="_on_audio_stream_player_3d_finished"]
 [connection signal="animation_finished" from="Camera3D2/bed_animation_player" to="Camera3D" method="_on_bed_animation_player_animation_finished"]
 
 [editable path="env/LowPolyDesk"]

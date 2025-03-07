@@ -62,7 +62,7 @@ func play_audio():
 	if current_audio < audios.size():
 		$AudioStreamPlayer3D.stream = audios[current_audio]
 		$AudioStreamPlayer3D.play()
-		current_audio = (current_audio + 1) % audios.size()
+		current_audio = current_audio + 1
 
 func handle_drink_input(collider: Object) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -132,3 +132,8 @@ func _on_bed_animation_player_animation_finished(anim_name: StringName) -> void:
 			$"../helmet/StaticBody3D/CollisionShape3D".disabled = false
 			$"../drink_collider".queue_free()
 			$"../Drinks".queue_free()
+
+
+func _on_audio_stream_player_3d_finished() -> void:
+	if current_audio == 7:
+		pass
