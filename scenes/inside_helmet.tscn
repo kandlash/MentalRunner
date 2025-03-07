@@ -557,7 +557,7 @@ autoplay = "open_trans"
 [node name="levels" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 script = ExtResource("5_7nm0f")
-levels_array = Array[String](["res://scenes/test_level.tscn", "", ""])
+levels_array = Array[String](["res://scenes/level_1.tscn", "res://scenes/test_level.tscn", ""])
 
 [node name="level_plane" type="MeshInstance3D" parent="levels"]
 transform = Transform3D(1.84126, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.174, -3.38711)

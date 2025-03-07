@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5qsaieqddkkr"]
+
+[ext_resource type="Script" uid="uid://chqlwlof2yebo" path="res://scripts/tip_area.gd" id="1_mxl0j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sw5q3"]
+size = Vector3(2, 2, 2)
+
+[node name="tip_area" type="Area3D"]
+script = ExtResource("1_mxl0j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sw5q3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

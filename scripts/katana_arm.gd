@@ -3,6 +3,12 @@ extends Node3D
 var can_attack = true
 @onready var slicer: MeshInstance3D = $Slicer
 
+func _ready() -> void:
+	if $"../../..".can_use_katana:
+		return
+	visible = false
+	set_process(false)
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:
 		$"../../../AnimationPlayer".play("katana_attack_1")

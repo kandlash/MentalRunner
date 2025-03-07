@@ -23,6 +23,6 @@ func _on_body_entered(body: Node3D) -> void:
 		world_point,
 		"rotation",
 		Vector3(0, 0, deg_to_rad(rotate_degree)),
-		0.7
+		0.35
 	)
 	#world_point.rotate_z(deg_to_rad(rotate_degree))

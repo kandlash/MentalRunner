@@ -15,12 +15,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ai25w"]
 panorama = ExtResource("1_2xnjc")
 
-[sub_resource type="Sky" id="Sky_y4m81"]
+[sub_resource type="Sky" id="Sky_dw7u0"]
 sky_material = SubResource("PanoramaSkyMaterial_ai25w")
 
 [sub_resource type="Environment" id="Environment_qgqkb"]
 background_mode = 2
-sky = SubResource("Sky_y4m81")
+sky = SubResource("Sky_dw7u0")
 tonemap_mode = 2
 ssr_max_steps = 454
 ssr_fade_in = 0.191184

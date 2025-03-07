@@ -1,5 +1,6 @@
-[gd_scene load_steps=60 format=3 uid="uid://c02h5goirkiyv"]
+[gd_scene load_steps=61 format=3 uid="uid://c02h5goirkiyv"]
 
+[ext_resource type="Script" uid="uid://duxcb0gucod5h" path="res://scripts/room.gd" id="1_0tws2"]
 [ext_resource type="PackedScene" uid="uid://ch5jj5hcpf0e2" path="res://assets/models/LowPolyDesk.fbx" id="1_tk5fv"]
 [ext_resource type="Texture2D" uid="uid://byyyks17tsjr4" path="res://assets/images/UVLowPolyRoom.png" id="2_23wr2"]
 [ext_resource type="PackedScene" uid="uid://g740284tbchk" path="res://assets/models/LowPolyFloor.fbx" id="2_w68ji"]
@@ -481,6 +482,7 @@ size = Vector3(0.176758, 0.334473, 0.18457)
 size = Vector3(1.98395, 2.40192, 1.70337)
 
 [node name="room" type="Node3D"]
+script = ExtResource("1_0tws2")
 
 [node name="env" type="Node3D" parent="."]
 
@@ -719,6 +721,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Label2" type="Label" parent="ui"]
+modulate = Color(1, 1, 1, 0.545098)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -41.0
+offset_right = -24.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Hold [SPACE] to skip"
 
 [node name="sleep_collider" type="StaticBody3D" parent="." groups=["sleep"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0207066, 0.34279, 2.11187)

@@ -14,6 +14,9 @@ var position_coords = [5, 0, -5]
 @onready var camera_3d: Camera3D = $head/Camera3D
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var raycast: RayCast3D = $RayCast3D2
+@onready var katana_arm: Node3D = $head/Camera3D/katana_arm
+
+@export var can_use_katana = true
 
 var crouch_height = 1.0
 var crouch_radius = 0.25
@@ -31,8 +34,10 @@ var default_fov = 90.0
 var running_fov = 100.0
 var crouching_fov = 80.0
 var fov_change_speed = 5
+var camera3d
 
 func _ready():
+	camera3d = $head/Camera3D
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -117,3 +122,8 @@ func handle_fov_change(delta):
 		camera_3d.fov = lerp(camera_3d.fov, running_fov, fov_change_speed * delta)
 	else:
 		camera_3d.fov = lerp(camera_3d.fov, default_fov, fov_change_speed * delta)
+
+func allow_katana():
+	can_use_katana = true
+	katana_arm.visible = true
+	katana_arm.set_process(true)

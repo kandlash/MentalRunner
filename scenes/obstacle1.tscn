@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cb0ktseb0east"]
 
-[ext_resource type="Script" uid="uid://dbusksk40o3lm" path="res://scripts/obstacle_1.gd" id="1_h3f6d"]
+[ext_resource type="Script" uid="uid://dbusksk40o3lm" path="res://scenes/obstacle_1.gd" id="1_h3f6d"]
 [ext_resource type="Material" uid="uid://b5ex0q582nomh" path="res://scenes/black_mat.tres" id="3_6ui81"]
 [ext_resource type="Material" uid="uid://ca37alv44lbef" path="res://scenes/emission_white.tres" id="3_h5phv"]
 [ext_resource type="PackedScene" uid="uid://bxxeu117el3mn" path="res://scenes/death_area.tscn" id="3_km1om"]

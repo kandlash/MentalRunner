@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuhjxyf4wevli"]
+
+[ext_resource type="Script" uid="uid://c6len8gm7yrjb" path="res://scripts/camera_area.gd" id="1_kec1b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pd3iv"]
+size = Vector3(5, 3, 1)
+
+[node name="camera_area" type="Area3D"]
+script = ExtResource("1_kec1b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_pd3iv")
+debug_color = Color(0.80486, 0.00238652, 0.996826, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

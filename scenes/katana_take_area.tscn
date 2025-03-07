@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbfmcc24xben6"]
+
+[ext_resource type="Script" uid="uid://dvrkrcsrpncsn" path="res://scripts/katana_take_area.gd" id="1_4smgn"]
+[ext_resource type="PackedScene" uid="uid://bap2avkcnyo1u" path="res://scenes/katana.tscn" id="2_fxip2"]
+[ext_resource type="AudioStream" uid="uid://dvfl41u26fcsm" path="res://assets/sounds/katana_take.mp3" id="3_fxip2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bfne2"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_2hnj4"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.309, 0, 0), Vector3(1.309, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4i07m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.309, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtqed"]
+_data = {
+&"RESET": SubResource("Animation_4i07m"),
+&"rotation": SubResource("Animation_2hnj4")
+}
+
+[node name="katana_take_area" type="Area3D"]
+script = ExtResource("1_4smgn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bfne2")
+debug_color = Color(0.854763, 0.368071, 0, 0.42)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 1, 1)
+light_energy = 16.0
+omni_range = 4.0
+
+[node name="katana" parent="." instance=ExtResource("2_fxip2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="katana"]
+libraries = {
+&"": SubResource("AnimationLibrary_qtqed")
+}
+autoplay = "rotation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fxip2")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

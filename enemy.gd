@@ -1,16 +1,14 @@
 extends Area3D
 
 var mesh_slicer = MeshSlicer.new()
-var chance_to_slowmotion = 25
+var chance_to_slowmotion = 10
 
 func start_slow_motion(scale: float = 0.5) -> void:
 	Engine.time_scale = scale
-	AudioServer.playback_speed_scale = 0.8
 	
 # Run the game at normal speed.
 func stop_slow_motion() -> void:
 	Engine.time_scale = 1.0
-	AudioServer.playback_speed_scale = 1
 	
 func take_damage(slicer):
 	$Blood.restart()
