@@ -1,0 +1,764 @@
+[gd_scene load_steps=60 format=3 uid="uid://c02h5goirkiyv"]
+
+[ext_resource type="PackedScene" uid="uid://ch5jj5hcpf0e2" path="res://assets/models/LowPolyDesk.fbx" id="1_tk5fv"]
+[ext_resource type="Texture2D" uid="uid://byyyks17tsjr4" path="res://assets/images/UVLowPolyRoom.png" id="2_23wr2"]
+[ext_resource type="PackedScene" uid="uid://g740284tbchk" path="res://assets/models/LowPolyFloor.fbx" id="2_w68ji"]
+[ext_resource type="PackedScene" uid="uid://chaxy53rxnvb0" path="res://assets/models/LowPolyGround.fbx" id="3_23wr2"]
+[ext_resource type="PackedScene" uid="uid://idho773wq3t2" path="res://assets/models/LowPolyComputerCase.fbx" id="4_3j2fx"]
+[ext_resource type="PackedScene" uid="uid://ctjo7heeqmkln" path="res://assets/models/LowPolyMouse.fbx" id="5_dynfe"]
+[ext_resource type="PackedScene" uid="uid://dbcayw443t5ed" path="res://assets/models/LowPolyBed.fbx" id="6_vfrn5"]
+[ext_resource type="PackedScene" uid="uid://cabpsaxw753p5" path="res://assets/models/LowPolyMonitor.fbx" id="7_katsu"]
+[ext_resource type="PackedScene" uid="uid://bu8bsoad32q6u" path="res://assets/models/LowPolyChair.fbx" id="8_jxwrd"]
+[ext_resource type="PackedScene" uid="uid://d2mklpeu41mjb" path="res://assets/models/LowPolyWall.fbx" id="9_spkk5"]
+[ext_resource type="PackedScene" uid="uid://djy65xmxp0est" path="res://assets/models/LowPolyWallWindowed.fbx" id="10_yggoe"]
+[ext_resource type="PackedScene" uid="uid://egc14fo5lqk5" path="res://assets/models/LowPolyCurtain.fbx" id="11_2ulci"]
+[ext_resource type="PackedScene" uid="uid://bg7joyy10yw72" path="res://assets/models/LowPolyKeyboard.fbx" id="12_kk8bn"]
+[ext_resource type="PackedScene" uid="uid://cpj0bhnm72euq" path="res://assets/models/LowPolyGarbage.fbx" id="14_3j2fx"]
+[ext_resource type="PackedScene" uid="uid://dnglc4mnyj8et" path="res://scenes/drinks.tscn" id="15_dynfe"]
+[ext_resource type="Script" uid="uid://cwarwgd32nl1x" path="res://scripts/room_camera.gd" id="16_dynfe"]
+[ext_resource type="AudioStream" uid="uid://kylffryta6sm" path="res://assets/sounds/1phrase.mp3" id="17_2ulci"]
+[ext_resource type="PackedScene" uid="uid://b3ah5n4d3pkgr" path="res://assets/models/helmet.fbx" id="17_vfrn5"]
+[ext_resource type="AudioStream" uid="uid://bvrqjahtfybhj" path="res://assets/sounds/2phrase.mp3" id="18_kk8bn"]
+[ext_resource type="AudioStream" uid="uid://cdc4esl6ceeru" path="res://assets/sounds/3phrase.mp3" id="19_mc3m6"]
+[ext_resource type="AudioStream" uid="uid://c5t4mv5srtw4a" path="res://assets/sounds/4phrase.mp3" id="20_a5qmg"]
+[ext_resource type="AudioStream" uid="uid://bhy2hf6gxa68j" path="res://assets/sounds/helmet_phrase.mp3" id="21_0tws2"]
+[ext_resource type="AudioStream" uid="uid://8gb8f4prp5oj" path="res://assets/sounds/5phrase.mp3" id="21_mc3m6"]
+[ext_resource type="AudioStream" uid="uid://dlfh84dfs6lko" path="res://assets/sounds/6phrase.mp3" id="22_a5qmg"]
+[ext_resource type="AudioStream" uid="uid://dlxxjowuo6340" path="res://assets/sounds/dark in the night.wav" id="24_a5qmg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ulci"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dynfe"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfrn5"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_katsu"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxwrd"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spkk5"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yggoe"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc3m6"]
+albedo_texture = ExtResource("2_23wr2")
+emission_enabled = true
+emission = Color(0.42, 0.497333, 1, 1)
+emission_energy_multiplier = 1.9
+
+[sub_resource type="Animation" id="Animation_3j2fx"]
+resource_name = "monitor_blinks"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_025:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.230442, 0.315791, 0.443815, 0.580374, 0.716932, 0.844956, 0.9047, 1.09247, 1.16075, 1.2461),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.9, 6.1, 4.13, 10.32, 1.21, 6.5, 2.57, 5.44, 3.55, 6.38, 1.97]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.238977, 0.315791, 0.45235, 0.605978, 0.716932, 0.844956, 0.9047, 1.101, 1.15221, 1.2461),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 1.2, 0.6, 1.0, 0.3, 1.0, 0.5, 0.8, 0.4, 1.0, 0.5]
+}
+
+[sub_resource type="Animation" id="Animation_dynfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_025:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfrn5"]
+_data = {
+&"RESET": SubResource("Animation_dynfe"),
+&"monitor_blinks": SubResource("Animation_3j2fx")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk8bn"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftego"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5qmg"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tws2"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ftkj"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny2il"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjarb"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5o3hq"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r6do"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wmww"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4f3b"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cm04"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="Animation" id="Animation_bwmvn"]
+resource_name = "drink_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.00009, 4.03333),
+"transitions": PackedFloat32Array(12.9961, 12.9961, 12.9961),
+"update": 0,
+"values": [Vector3(0.0306712, 1.00178, 0.980444), Vector3(-0.069, 0.947, 0.98), Vector3(0.0306712, 1.00178, 0.980444)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.00146, 2.00428, 2.5067, 2.6, 2.90403, 3, 3.26667, 3.33333, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 0.406126, 0.406126, 0.63728, 0.63728, 0.574349, 0.574349, 1),
+"update": 0,
+"values": [Vector3(-0.221795, 1.61365, 0.000755678), Vector3(-0.221795, 1.61365, 0.000755678), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(0.497419, 1.61443, 0), Vector3(0.427606, 1.61443, 0), Vector3(-0.221795, 1.61365, 0.000755678)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Drinks:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.558, 0.768, 0.948), Vector3(-0.533092, 0.767737, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.297645, 0.926593, 0.946378), Vector3(-0.533092, 0.767737, 0.946378)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Drinks:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.933333, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191), Vector3(0.0631191, 0.0631191, 0.0631191)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Drinks:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.933333, 0.966667, 1, 2.0007, 3.4, 4.04554),
+"transitions": PackedFloat32Array(1, 1, 1.10957, 1.10957, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.00872665, 0.0261799, 0), Vector3(0, 0, 0), Vector3(0, 0, -1.25828), Vector3(0, 0, -1.25828), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qwukm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0306712, 1.00178, 0.980444)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.221795, 1.61365, 0.000755678)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Drinks:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.533092, 0.767737, 0.946378)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Drinks:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0631191, 0.0631191, 0.0631191)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Drinks:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../helmet:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.4474, 0.645404, 1.12078)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../helmet:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.908828, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ui/ColorRect:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jxwrd"]
+resource_name = "helmet_on_animation"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.02643, 2.65502),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0306712, 1.00178, 0.980444), Vector3(-0.0322246, 1.00178, 0.980444), Vector3(-0.0322246, 1.00178, 1.02275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.02643, 1.57385, 1.79282, 2.13333, 2.4, 2.51817, 2.80557),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.221795, 1.61365, 0.000755678), Vector3(-0.481746, 1.61797, -0.0116816), Vector3(-0.481746, 1.6794, -0.0116816), Vector3(-0.481746, 1.73756, -0.0116816), Vector3(-0.229247, 1.72243, 0.031441), Vector3(-0.229247, 1.72243, 0.031441), Vector3(-0.0555528, 1.71866, 0.0578807), Vector3(-0.293261, 1.72507, 0.0212282)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../helmet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.02643, 1.25908, 1.38225, 1.76545, 2.0118, 2.31288, 2.54554, 2.76451, 3.09297),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4474, 0.645404, 1.12078), Vector3(-0.4474, 0.645404, 1.12078), Vector3(-0.4474, 0.645404, 1.12078), Vector3(-0.4474, 0.685009, 1.12078), Vector3(-0.4474, 0.685009, 1.12078), Vector3(-0.4474, 0.685009, 1.12078), Vector3(-0.296436, 0.918513, 1.02305), Vector3(-0.215734, 0.987199, 1.02305), Vector3(-0.121361, 0.987199, 1.02305), Vector3(-0.079074, 0.916475, 1.02305)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../helmet:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.25908, 1.38225, 2.31288, 2.54554, 2.76451, 3.09297),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.908828, 0), Vector3(0, 0.703333, 0), Vector3(0, -0.129835, 0), Vector3(-0.0734614, 3.03432, -0.598228), Vector3(-0.0734614, 3.03432, -0.598228), Vector3(-0.0506127, 3.02186, -0.398077), Vector3(-0.0506127, 3.02186, -0.398077)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ui/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.76451, 3.09297),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frp7b"]
+_data = {
+&"RESET": SubResource("Animation_qwukm"),
+&"drink_animation": SubResource("Animation_bwmvn"),
+&"helmet_on_animation": SubResource("Animation_jxwrd")
+}
+
+[sub_resource type="Animation" id="Animation_vfrn5"]
+resource_name = "sleep_animation"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.903255, 1.28645, 2.03333, 3.69514, 4.74893),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.492765, 0.748543, 2.3056), Vector3(0.492765, 0.748543, 2.3056), Vector3(0.492765, 0.696726, 2.3056), Vector3(0.492765, 0.748543, 2.3056), Vector3(0.513952, 0.748543, 2.3056), Vector3(0.561675, 0.748543, 2.38483)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.903255, 1.58754, 2.03333, 3.69514, 4.74893),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.470234, 1.02757, -0.336754), Vector3(0.992933, 1.24167, -0.137977), Vector3(0.93757, 1.06243, -0.355621), Vector3(0.992933, 1.24167, -0.137977), Vector3(-0.0822103, 2.50296, 1.07588), Vector3(-0.171635, 2.73613, 0.873843)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ui/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.02643, 2.03917, 3.02454, 4.06465, 5.06667, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.533333), Color(0, 0, 0, 0), Color(0, 0, 0, 0.631373), Color(0, 0, 0, 0.709804), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_katsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.492765, 0.748543, 2.3056)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.470234, 1.02757, -0.336754)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ui/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxwrd"]
+_data = {
+&"RESET": SubResource("Animation_katsu"),
+&"sleep_animation": SubResource("Animation_vfrn5")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aavd"]
+albedo_texture = ExtResource("2_23wr2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dynfe"]
+size = Vector3(0.176758, 0.334473, 0.18457)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vfrn5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5qmg"]
+size = Vector3(1.98395, 2.40192, 1.70337)
+
+[node name="room" type="Node3D"]
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="LowPolyDesk" parent="env" instance=ExtResource("1_tk5fv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570827, 0.399347, 0.897033)
+
+[node name="Cube_019" parent="env/LowPolyDesk" index="0"]
+material_override = SubResource("StandardMaterial3D_2ulci")
+
+[node name="floor" type="Node3D" parent="env"]
+
+[node name="LowPolyFloor" parent="env/floor" instance=ExtResource("2_w68ji")]
+
+[node name="Cube_029" parent="env/floor/LowPolyFloor" index="0"]
+material_override = SubResource("StandardMaterial3D_dynfe")
+
+[node name="LowPolyGround" parent="env/floor" instance=ExtResource("3_23wr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0430763, 0)
+
+[node name="Cube_002" parent="env/floor/LowPolyGround" index="0"]
+material_override = SubResource("StandardMaterial3D_vfrn5")
+
+[node name="LowPolyFloor3" parent="env/floor" instance=ExtResource("2_w68ji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Cube_029" parent="env/floor/LowPolyFloor3" index="0"]
+material_override = SubResource("StandardMaterial3D_katsu")
+
+[node name="LowPolyGround3" parent="env/floor" instance=ExtResource("3_23wr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0430763, 2)
+
+[node name="Cube_002" parent="env/floor/LowPolyGround3" index="0"]
+material_override = SubResource("StandardMaterial3D_jxwrd")
+
+[node name="LowPolyComputerCase" parent="env" instance=ExtResource("4_3j2fx")]
+transform = Transform3D(0.991983, 0, 0.126372, 0, 1, 0, -0.126372, 0, 0.991983, -0.718286, 0.799833, 0.616863)
+
+[node name="Cube_021" parent="env/LowPolyComputerCase" index="0"]
+material_override = SubResource("StandardMaterial3D_spkk5")
+
+[node name="LowPolyMouse" parent="env" instance=ExtResource("5_dynfe")]
+transform = Transform3D(0.368936, 0, -0.929455, 0, 1, 0, 0.929455, 0, 0.368936, -0.577973, 0.677391, 0.763351)
+
+[node name="LowPolyBed" parent="env" instance=ExtResource("6_vfrn5")]
+transform = Transform3D(0.0127929, 0, -0.999918, 0, 1, 0, 0.999918, 0, 0.0127929, 0.284221, 0.269645, 2.45855)
+
+[node name="Cube_006" parent="env/LowPolyBed" index="0"]
+material_override = SubResource("StandardMaterial3D_yggoe")
+
+[node name="LowPolyMonitor" parent="env" instance=ExtResource("7_katsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.795258, 0.814771, 1.13365)
+
+[node name="Cube_025" parent="env/LowPolyMonitor" index="0"]
+material_override = SubResource("StandardMaterial3D_mc3m6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="env/LowPolyMonitor"]
+libraries = {
+&"": SubResource("AnimationLibrary_vfrn5")
+}
+autoplay = "monitor_blinks"
+speed_scale = 0.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="env/LowPolyMonitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202249, 0.093859, 0)
+light_color = Color(0.4, 0.4, 1, 1)
+omni_range = 0.587603
+
+[node name="LowPolyChair" parent="env" instance=ExtResource("8_jxwrd")]
+transform = Transform3D(-0.999908, 0, -0.0135607, 0, 1, 0, 0.0135607, 0, -0.999908, -0.105092, 0.247178, 1.15499)
+
+[node name="Cube_034" parent="env/LowPolyChair" index="0"]
+material_override = SubResource("StandardMaterial3D_kk8bn")
+
+[node name="Walls" type="Node3D" parent="env"]
+
+[node name="LowPolyWall" parent="env/Walls" instance=ExtResource("9_spkk5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 1, 2)
+
+[node name="Cube_001" parent="env/Walls/LowPolyWall" index="0"]
+material_override = SubResource("StandardMaterial3D_ftego")
+
+[node name="LowPolyWall2" parent="env/Walls" instance=ExtResource("9_spkk5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 1, 0)
+
+[node name="Cube_001" parent="env/Walls/LowPolyWall2" index="0"]
+material_override = SubResource("StandardMaterial3D_a5qmg")
+
+[node name="LowPolyWall3" parent="env/Walls" instance=ExtResource("9_spkk5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, -8.74228e-08)
+
+[node name="Cube_001" parent="env/Walls/LowPolyWall3" index="0"]
+material_override = SubResource("StandardMaterial3D_0tws2")
+
+[node name="LowPolyWall5" parent="env/Walls" instance=ExtResource("9_spkk5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.74228e-08, 1, -1)
+
+[node name="Cube_001" parent="env/Walls/LowPolyWall5" index="0"]
+material_override = SubResource("StandardMaterial3D_2ftkj")
+
+[node name="LowPolyWall4" parent="env/Walls" instance=ExtResource("9_spkk5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, 2)
+
+[node name="Cube_001" parent="env/Walls/LowPolyWall4" index="0"]
+material_override = SubResource("StandardMaterial3D_ny2il")
+
+[node name="LowPolyWallWindowed" parent="env/Walls" instance=ExtResource("10_yggoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="Cube_000" parent="env/Walls/LowPolyWallWindowed" index="0"]
+material_override = SubResource("StandardMaterial3D_gjarb")
+
+[node name="LowPolyCurtain" parent="env/Walls" instance=ExtResource("11_2ulci")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.6409e-09, 1.26223, 2.91671)
+
+[node name="Cube_044" parent="env/Walls/LowPolyCurtain" index="0"]
+material_override = SubResource("StandardMaterial3D_5o3hq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7r6do")
+
+[node name="LowPolyKeyboard" parent="env" instance=ExtResource("12_kk8bn")]
+transform = Transform3D(0.992926, 0, -0.118733, 0, 1, 0, 0.118733, 0, 0.992926, -0.585052, 0.684787, 1.15855)
+
+[node name="Cube_027" parent="env/LowPolyKeyboard" index="0"]
+material_override = SubResource("StandardMaterial3D_1wmww")
+
+[node name="LowPolyGarbage2" parent="." instance=ExtResource("14_3j2fx")]
+transform = Transform3D(0.547856, 0, 0.459624, 0, 0.715123, 0, -0.459624, 0, 0.547856, -0.805238, 0.679789, 1.34495)
+
+[node name="Icosphere" parent="LowPolyGarbage2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c4f3b")
+
+[node name="LowPolyGarbage3" parent="." instance=ExtResource("14_3j2fx")]
+transform = Transform3D(0.445571, 0.106906, 0.549034, 0.141655, 0.65749, -0.242985, -0.541111, 0.260152, 0.388485, -0.849058, 0.666604, 1.29403)
+
+[node name="Icosphere" parent="LowPolyGarbage3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2cm04")
+
+[node name="Drinks" parent="." instance=ExtResource("15_dynfe")]
+transform = Transform3D(0.0631191, 0, 0, 0, 0.0631191, 0, 0, 0, 0.0631191, -0.533092, 0.767737, 0.946378)
+
+[node name="first_garbage" type="Node3D" parent="."]
+visible = false
+
+[node name="Drinks4" parent="first_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(0.0631191, 0, 0, 0, 0.0631191, 0, 0, 0, 0.0631191, -0.814176, 0.767737, 0.719579)
+
+[node name="Drinks2" parent="first_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(-0.000736976, -0.0595972, 0.0207761, 0.0631148, -0.000695903, 0.000242598, -1.45519e-11, 0.0207775, 0.0596013, -0.622555, 0.685499, 0.867885)
+
+[node name="Drinks3" parent="first_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(-0.000736976, -0.0537358, 0.033105, 0.0631148, -0.00062746, 0.00038656, -1.42115e-11, 0.0331073, 0.0537394, -0.750887, 0.684001, 0.770876)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0430039, -0.219747, 0.974609, 0.000737167, 0.975504, 0.219981, -0.999075, 0.0101785, -0.0417884, 0.0306712, 1.00178, 0.980444)
+script = ExtResource("16_dynfe")
+audios = Array[AudioStream]([ExtResource("17_2ulci"), ExtResource("18_kk8bn"), ExtResource("19_mc3m6"), ExtResource("20_a5qmg"), ExtResource("21_mc3m6"), ExtResource("22_a5qmg"), ExtResource("21_0tws2")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_frp7b")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0.195, -1.045)
+
+[node name="click_cooldown" type="Timer" parent="Camera3D"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Camera3D"]
+
+[node name="Music" type="AudioStreamPlayer" parent="Camera3D"]
+stream = ExtResource("24_a5qmg")
+volume_db = -10.0
+autoplay = true
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.359702, 0.536881, 0.763133, -0.294562, 0.841391, -0.453095, -0.885352, -0.0618104, 0.460795, 0.492765, 0.748543, 2.3056)
+
+[node name="bed_animation_player" type="AnimationPlayer" parent="Camera3D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_jxwrd")
+}
+
+[node name="second_garbage" type="Node3D" parent="."]
+visible = false
+
+[node name="LowPolyGarbage" parent="second_garbage" instance=ExtResource("14_3j2fx")]
+transform = Transform3D(0.766101, 0, 0.642721, 0, 1, 0, -0.642721, 0, 0.766101, -0.818391, 0.698088, 1.49997)
+
+[node name="Icosphere" parent="second_garbage/LowPolyGarbage" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3aavd")
+
+[node name="Drinks5" parent="second_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(-0.00210031, -0.0542624, -0.0321745, 0.0630789, -0.0022188, -0.000375694, -0.000808041, -0.0321665, 0.0543017, -0.590299, 0.712959, 1.40062)
+
+[node name="Drinks6" parent="second_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(0.0543026, -0.00021573, -0.0321745, 2.81484e-05, 0.0631179, -0.000375696, 0.0321752, 0.000308875, 0.0543017, -0.466371, 0.769469, 1.47444)
+
+[node name="Drinks7" parent="second_garbage" instance=ExtResource("15_dynfe")]
+transform = Transform3D(0.0543026, -0.00021573, -0.0321745, 2.81484e-05, 0.0631179, -0.000375696, 0.0321752, 0.000308875, 0.0543017, -0.571015, 0.769015, 1.49426)
+
+[node name="drink_collider" type="StaticBody3D" parent="." groups=["drink"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534226, 0.737605, 0.937796)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="drink_collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0227051, 0)
+shape = SubResource("BoxShape3D_dynfe")
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 6.0
+offset_right = 47.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="sleep_collider" type="StaticBody3D" parent="." groups=["sleep"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0207066, 0.34279, 2.11187)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sleep_collider"]
+shape = SubResource("BoxShape3D_vfrn5")
+
+[node name="helmet" parent="." instance=ExtResource("17_vfrn5")]
+transform = Transform3D(0.0899511, 0, 0.115431, 0, 0.14634, 0, -0.115431, 0, 0.0899511, -0.4474, 0.645404, 1.12078)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="helmet" groups=["helmet"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="helmet/StaticBody3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 0, 0, 1, -0.0992737, 0.475921, -0.0762932)
+shape = SubResource("BoxShape3D_a5qmg")
+disabled = true
+
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Camera3D/click_cooldown" to="Camera3D" method="_on_click_cooldown_timeout"]
+[connection signal="animation_finished" from="Camera3D2/bed_animation_player" to="Camera3D" method="_on_bed_animation_player_animation_finished"]
+
+[editable path="env/LowPolyDesk"]
+[editable path="env/floor/LowPolyFloor"]
+[editable path="env/floor/LowPolyGround"]
+[editable path="env/floor/LowPolyFloor3"]
+[editable path="env/floor/LowPolyGround3"]
+[editable path="env/LowPolyComputerCase"]
+[editable path="env/LowPolyMouse"]
+[editable path="env/LowPolyBed"]
+[editable path="env/LowPolyMonitor"]
+[editable path="env/LowPolyChair"]
+[editable path="env/Walls/LowPolyWall"]
+[editable path="env/Walls/LowPolyWall2"]
+[editable path="env/Walls/LowPolyWall3"]
+[editable path="env/Walls/LowPolyWall5"]
+[editable path="env/Walls/LowPolyWall4"]
+[editable path="env/Walls/LowPolyWallWindowed"]
+[editable path="env/Walls/LowPolyCurtain"]
+[editable path="env/LowPolyKeyboard"]
+[editable path="LowPolyGarbage2"]
+[editable path="LowPolyGarbage3"]
+[editable path="second_garbage/LowPolyGarbage"]

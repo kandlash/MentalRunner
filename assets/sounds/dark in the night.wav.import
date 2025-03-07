@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlxxjowuo6340"
+path="res://.godot/imported/dark in the night.wav-0e50c7d667c82eacd49ac07155604d81.sample"
+
+[deps]
+
+source_file="res://assets/sounds/dark in the night.wav"
+dest_files=["res://.godot/imported/dark in the night.wav-0e50c7d667c82eacd49ac07155604d81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

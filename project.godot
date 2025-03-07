@@ -21,6 +21,9 @@ ground=""
 wall=""
 side_platform_hook=""
 enemy=""
+drink=""
+sleep=""
+helmet=""
 
 [input]
 
