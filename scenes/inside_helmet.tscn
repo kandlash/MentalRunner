@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://br4vkt2tcgk6d"]
+[gd_scene load_steps=13 format=3 uid="uid://br4vkt2tcgk6d"]
 
 [ext_resource type="Shader" uid="uid://bn3ho8xiy4oto" path="res://scripts/slash.tres" id="1_7dm7v"]
 [ext_resource type="Script" uid="uid://d2w836ywmsr00" path="res://scripts/inside_helmet.gd" id="1_u6for"]
@@ -85,6 +85,47 @@ _data = {
 &"circle": SubResource("Animation_q8mwl")
 }
 
+[sub_resource type="Animation" id="Animation_u6for"]
+resource_name = "boot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Mental Runner
+boot...", "Mental Runner
+boot...|", "Mental Runner
+boot..."]
+}
+
+[sub_resource type="Animation" id="Animation_7nm0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Mental Runner
+boot..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28lt0"]
+_data = {
+&"RESET": SubResource("Animation_7nm0f"),
+&"boot": SubResource("Animation_u6for")
+}
+
 [node name="inside_helmet" type="Node3D"]
 script = ExtResource("1_u6for")
 
@@ -112,7 +153,13 @@ autoplay = "circle"
 speed_scale = 0.5
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10226, -4.68808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10147, -4.68808)
 text = "Mental Runner
 boot..."
 font_size = 64
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_28lt0")
+}
+autoplay = "boot"
