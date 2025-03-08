@@ -13,7 +13,12 @@ config_version=5
 config/name="Mental Runner"
 run/main_scene="uid://c02h5goirkiyv"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/images/icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="uid://d3lxxxc1in0jp"
+
+[display]
+
+window/size/mode=3
 
 [global_group]
 
@@ -89,3 +94,7 @@ escape={
 
 3d/physics_engine="Jolt Physics"
 3d/default_gravity=100.0
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

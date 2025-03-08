@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq0dqrgtf80r5"
 path.s3tc="res://.godot/imported/text.png-beb75e589e08bc9f5bfcb1fd35114e58.s3tc.ctex"
+path.etc2="res://.godot/imported/text.png-beb75e589e08bc9f5bfcb1fd35114e58.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/models/katana/text.png"
-dest_files=["res://.godot/imported/text.png-beb75e589e08bc9f5bfcb1fd35114e58.s3tc.ctex"]
+dest_files=["res://.godot/imported/text.png-beb75e589e08bc9f5bfcb1fd35114e58.s3tc.ctex", "res://.godot/imported/text.png-beb75e589e08bc9f5bfcb1fd35114e58.etc2.ctex"]
 
 [params]
 

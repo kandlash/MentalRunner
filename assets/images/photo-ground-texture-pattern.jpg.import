@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4b85n5edkn3o"
 path.s3tc="res://.godot/imported/photo-ground-texture-pattern.jpg-72d4535e458fa5c13de434b293eb973a.s3tc.ctex"
+path.etc2="res://.godot/imported/photo-ground-texture-pattern.jpg-72d4535e458fa5c13de434b293eb973a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/images/photo-ground-texture-pattern.jpg"
-dest_files=["res://.godot/imported/photo-ground-texture-pattern.jpg-72d4535e458fa5c13de434b293eb973a.s3tc.ctex"]
+dest_files=["res://.godot/imported/photo-ground-texture-pattern.jpg-72d4535e458fa5c13de434b293eb973a.s3tc.ctex", "res://.godot/imported/photo-ground-texture-pattern.jpg-72d4535e458fa5c13de434b293eb973a.etc2.ctex"]
 
 [params]
 
