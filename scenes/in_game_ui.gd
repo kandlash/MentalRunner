@@ -2,6 +2,7 @@ extends Control
 
 @onready var menu_player: AnimationPlayer = $menu_player
 @onready var menu: Control = $Menu
+@onready var win_menu: Control = $win_menu
 
 
 func _on_con_button_pressed() -> void:

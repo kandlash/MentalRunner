@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://br1u3kv50wn7q"]
+[gd_scene load_steps=20 format=3 uid="uid://br1u3kv50wn7q"]
 
 [ext_resource type="Script" uid="uid://b1oeu0qewaf44" path="res://scripts/level_menu.gd" id="1_6dial"]
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_rus8k"]
+[ext_resource type="PackedScene" uid="uid://cpo7xi1d6ncog" path="res://scenes/win_area.tscn" id="2_7nomh"]
 [ext_resource type="PackedScene" uid="uid://cr6pncoc8vt1d" path="res://scenes/side_platform.tscn" id="3_2os1m"]
 [ext_resource type="PackedScene" uid="uid://qwp7e1uxfo5j" path="res://scenes/ground.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cn46bprwuvehq" path="res://scenes/world_rotator.tscn" id="3_e3sih"]
@@ -49,6 +50,9 @@ volumetric_fog_anisotropy = -0.9
 
 [node name="level_1" type="Node3D"]
 script = ExtResource("1_6dial")
+
+[node name="win_area" parent="." instance=ExtResource("2_7nomh")]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, -127, 1628)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pa8r4")

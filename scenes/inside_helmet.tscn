@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://04a4s0s8mtx2"]
+[gd_scene load_steps=23 format=3 uid="uid://04a4s0s8mtx2"]
 
 [ext_resource type="Shader" uid="uid://bn3ho8xiy4oto" path="res://scripts/slash.tres" id="1_7dm7v"]
 [ext_resource type="Script" uid="uid://d2w836ywmsr00" path="res://scripts/inside_helmet.gd" id="1_u6for"]
@@ -219,6 +219,9 @@ _data = {
 }
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oi2cf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fxygl"]
+size = Vector2(2.705, 2.32)
 
 [node name="inside_helmet" type="Node3D"]
 script = ExtResource("1_u6for")
@@ -604,7 +607,7 @@ omni_range = 3.0
 [node name="level_number" type="Label3D" parent="levels/level_plane3"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0633342, -2.76843e-09)
 modulate = Color(0, 0, 0, 1)
-text = "LEVEL 3"
+text = "About"
 font_size = 90
 
 [node name="abstract_element" parent="." instance=ExtResource("6_28lt0")]
@@ -696,5 +699,30 @@ spot_range = 68.0134
 
 [node name="abstract_cubes_16" parent="." instance=ExtResource("7_fxygl")]
 transform = Transform3D(0.984236, 0, -0.176861, 0, 1, 0, 0.176861, 0, 0.984236, -33.2619, -27, -141.015)
+
+[node name="about_text" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.50028, 0, 0, 0, 7.2321, 0, 0, 0, 4.50028, 0, 1.07451, -14.2826)
+visible = false
+mesh = SubResource("QuadMesh_fxygl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="about_text"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.600879)
+light_energy = 5.057
+omni_range = 11.6894
+
+[node name="Label3D" type="Label3D" parent="about_text"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0454126)
+text = "Gamedesign - kandlash
+Programming - kandlash
+Room music - dark in the night by kandlash
+Level 1 music - DEMO by kandlash
+Level 2 music - DRIVE by Alex-Productions
+
+Assets:
+Katana - WoblinGoblin
+Helmet - HoliestMallard
+Spike Alien - Trockk
+Room models - Gabi"
+font_size = 22
 
 [connection signal="animation_finished" from="Label3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

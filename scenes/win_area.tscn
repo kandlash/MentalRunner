@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpo7xi1d6ncog"]
+
+[ext_resource type="Script" uid="uid://jfel3xdwaxte" path="res://scripts/win_area.gd" id="1_ito5k"]
+[ext_resource type="AudioStream" uid="uid://dnv7bdqa4017g" path="res://assets/sounds/win_sound.wav" id="2_e0fpl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3alhw"]
+size = Vector3(8.9834, 8.87476, 0.421875)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0fpl"]
+emission_enabled = true
+emission = Color(2.21401e-06, 0.675529, 0.829789, 1)
+emission_energy_multiplier = 11.61
+
+[node name="win_area" type="Area3D"]
+script = ExtResource("1_ito5k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3alhw")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+inner_radius = 4.43645
+outer_radius = 4.95573
+sides = 32
+material = SubResource("StandardMaterial3D_e0fpl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e0fpl")
+volume_db = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

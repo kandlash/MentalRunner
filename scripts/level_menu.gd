@@ -19,10 +19,17 @@ func close_menu() -> void:
 	is_menu_open = false
 	resume_game()
 
-func pause_game() -> void:
+func pause_game(is_win=false) -> void:
 	$in_game_ui.menu_player.play("menu_out")
-	$in_game_ui.menu.visible = true
-	$music.stream_paused = true
+	if !is_win:
+		$music.stream_paused = true
+		$in_game_ui.menu.visible = true
+	else:
+		$music.volume_db = $music.volume_db * 2.7
+		$in_game_ui.win_menu.visible = true
+		Engine.time_scale = 0.005
+		set_process(false)
+		
 	$player.set_process(false)
 	$player.set_physics_process(false)
 	if $player.can_use_katana:

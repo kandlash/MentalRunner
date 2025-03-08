@@ -11,6 +11,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("accept"):
+		if current_level == 2:
+			$"../about_text".visible = !$"../about_text".visible
+			visible = !visible
+			can_change = !can_change
+			return
 		get_tree().change_scene_to_file(levels_array[current_level])
 		
 	if !can_change:
@@ -21,6 +26,8 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("right") and current_level < 2:
 		move_smoothly(-4)  # Плавное перемещение влево
 		current_level += 1
+	elif Input.is_action_just_pressed("escape"):
+		get_tree().quit()
 
 func move_smoothly(amount: float) -> void:
 	can_change = false

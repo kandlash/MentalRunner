@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://brkendctrgna5"]
+[gd_scene load_steps=24 format=3 uid="uid://brkendctrgna5"]
 
 [ext_resource type="Script" uid="uid://b1oeu0qewaf44" path="res://scripts/level_menu.gd" id="1_bv48q"]
 [ext_resource type="Texture2D" uid="uid://b4b85n5edkn3o" path="res://assets/images/photo-ground-texture-pattern.jpg" id="1_eqxsl"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cnxo6vfjrsd0s" path="res://scenes/restart_area.tscn" id="15_7qsfm"]
 [ext_resource type="Script" uid="uid://b07io4tx1kuvh" path="res://assets/models/abstract_tube_test.gd" id="15_wdtqu"]
 [ext_resource type="PackedScene" uid="uid://bp2mlujascs73" path="res://assets/models/abstract_cubes_1.fbx" id="16_7qsfm"]
+[ext_resource type="PackedScene" uid="uid://cpo7xi1d6ncog" path="res://scenes/win_area.tscn" id="20_k22d5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ne2mo"]
 panorama = ExtResource("1_eqxsl")
@@ -372,7 +373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -10, 17)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, 17)
 
 [node name="180" type="Node3D" parent="katana_tip"]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="ground29" parent="katana_tip/180" instance=ExtResource("5_b4j7a")]
 transform = Transform3D(1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0, -58.8939, 645.274)
@@ -733,5 +734,8 @@ transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -116.82, -
 
 [node name="abstract_element3" parent="." instance=ExtResource("14_wdtqu")]
 transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -48.5045, 48.4186, 455)
+
+[node name="win_area" parent="." instance=ExtResource("20_k22d5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -123, 1387)
 
 [editable path="in_game_ui"]

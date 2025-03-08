@@ -152,6 +152,84 @@ text = "Restart
 layout_mode = 2
 text = "Exit"
 
+[node name="win_menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="win_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="win_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.5
+offset_right = 150.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="res_button" type="Button" parent="win_menu/VBoxContainer"]
+layout_mode = 2
+text = "Restart
+"
+
+[node name="exit_button" type="Button" parent="win_menu/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="Label" type="Label" parent="win_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -195.0
+offset_right = 217.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+text = "Well done"
+uppercase = true
+
+[node name="Label2" type="Label" parent="win_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -96.0
+offset_right = 196.5
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Your mental is better now. Keep move."
+
 [connection signal="pressed" from="Menu/VBoxContainer/con_button" to="." method="_on_con_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/res_button" to="." method="_on_res_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="win_menu/VBoxContainer/res_button" to="." method="_on_res_button_pressed"]
+[connection signal="pressed" from="win_menu/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
